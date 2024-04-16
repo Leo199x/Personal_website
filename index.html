@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LÈO</title>
     <!-- Font Awesome CDN -->
@@ -121,7 +122,7 @@
         /* Styles for dark mode */
         body.dark-mode {
             background-image: url("assets/img/dark.jpg");
-            background-size: cover;
+            background-size: contain;
             background-position: center;
             color: white;
         }
@@ -196,7 +197,7 @@
     <!-- JavaScript for toggle button and typing animation -->
     <script>
         // Typing animation function
-        function typeText(element, text, speed = 50) {
+        function typeText(element, text, speed = 175) {
             let i = 0;
 
             function type() {
@@ -222,6 +223,7 @@
         function toggleMode() {
             const body = document.body;
             const button = document.getElementById('toggleButton');
+            const descriptionElement = document.getElementById('description');
 
             // Toggle dark mode class on body
             body.classList.toggle('dark-mode');
@@ -232,6 +234,13 @@
             } else {
                 button.textContent = '🌙';
             }
+
+            // Clear the current text content in the description section
+            descriptionElement.textContent = '';
+
+            // Restart the typing animation with the desired text
+            const text = 'Yea, about that.';
+            typeText(descriptionElement, text, 175);
         }
     </script>
 </body>
