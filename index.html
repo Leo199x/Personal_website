@@ -32,7 +32,7 @@
             position: relative;
         }
 
-        /* Pseudo-element for blurred effect in light mode */
+        /* Pseudo-element for blurred effect behind the box in light mode */
         body:not(.dark-mode) .container::before {
             content: '';
             position: absolute;
@@ -40,9 +40,22 @@
             left: 0;
             right: 0;
             bottom: 0;
-            /* Background for the blur effect */
+            /* Background for the blur effect in light mode */
             background-color: rgba(255, 255, 255, 0.5);
-            /* Apply blur effect */
+            backdrop-filter: blur(10px);
+            z-index: -1; /* Place behind the content */
+        }
+
+        /* Pseudo-element for blurred effect behind the box in dark mode */
+        body.dark-mode .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Background for the blur effect in dark mode */
+            background-color: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
             z-index: -1; /* Place behind the content */
         }
@@ -107,7 +120,9 @@
 
         /* Styles for dark mode */
         body.dark-mode {
-            background-color: #333;
+            background-image: url("assets/img/3.jpg");
+            background-size: cover;
+            background-position: center;
             color: white;
         }
 
@@ -136,7 +151,7 @@
 
         /* Background image for light mode */
         body:not(.dark-mode) {
-            background-image: url("assets/img/3896707.jpg");
+            background-image: url("assets/img/assets/img/3896707.jpg");
             background-size: cover;
             background-position: center;
         }
@@ -196,12 +211,12 @@
         }
 
         // Initialize typing animation on page load
-        window.onload = function () {
+        window.onload = function() {
             const descriptionElement = document.getElementById('description');
             const text = 'Yea, about that.'; // Initial text for the typing animation
 
             // Call the typing function with the description element, text, and typing speed
-            typeText(descriptionElement, text, 125);
+            typeText(descriptionElement, text, 175);
         };
 
         function toggleMode() {
@@ -215,7 +230,7 @@
             if (body.classList.contains('dark-mode')) {
                 button.textContent = '🔆';
             } else {
-                button.textContent = '🌕';
+                button.textContent = '🌙';
             }
         }
     </script>
