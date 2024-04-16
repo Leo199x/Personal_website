@@ -66,7 +66,7 @@
             height: 300px;
             border-radius: 50%;
             margin-bottom: 20px;
-            cursor: pointer; /* Add cursor pointer to indicate the image is clickable */
+            cursor: pointer;
         }
 
         /* Styling for the name section */
@@ -270,12 +270,11 @@
         }
 
         // Image preview function
-        
         function previewImage() {
             const modal = document.getElementById('modal');
 
-            // Show the modal
-            //modal.style.display = 'flex';
+            // Show the modal when the profile image is clicked
+            modal.style.display = 'flex';
         }
 
         // Event listener for profile image click
