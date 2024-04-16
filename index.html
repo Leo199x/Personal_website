@@ -32,7 +32,7 @@
             position: relative;
         }
 
-        /* Pseudo-element for translucent or blurred effect in light mode */
+        /* Pseudo-element for blurred effect in light mode */
         body:not(.dark-mode) .container::before {
             content: '';
             position: absolute;
@@ -40,7 +40,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            /* Adjust opacity for translucency */
+            /* Background for the blur effect */
             background-color: rgba(255, 255, 255, 0.5);
             /* Apply blur effect */
             backdrop-filter: blur(10px);
@@ -157,8 +157,8 @@
         </div>
 
         <!-- Description section -->
-        <div class="description-section">
-            Yea, about that.
+        <div class="description-section" id="description">
+            <!-- This is where the typing animation text will appear -->
         </div>
 
         <!-- Social media links -->
@@ -178,8 +178,32 @@
         </a>
     </div>
 
-    <!-- JavaScript for toggle button -->
+    <!-- JavaScript for toggle button and typing animation -->
     <script>
+        // Typing animation function
+        function typeText(element, text, speed = 50) {
+            let i = 0;
+
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+
+            type();
+        }
+
+        // Initialize typing animation on page load
+        window.onload = function () {
+            const descriptionElement = document.getElementById('description');
+            const text = 'Yea, about that.'; // Initial text for the typing animation
+
+            // Call the typing function with the description element, text, and typing speed
+            typeText(descriptionElement, text, 75);
+        };
+
         function toggleMode() {
             const body = document.body;
             const button = document.getElementById('toggleButton');
