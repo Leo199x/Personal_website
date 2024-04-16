@@ -6,84 +6,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABHI</title>
+    <title>Social Media Links</title>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Styles for the box */
+        /* Styling for the box */
         .box {
             border: 1px solid #ccc;
             padding: 20px;
-            margin: 20px auto;
+            margin: 0 auto;
             border-radius: 10px;
-            width: 400px; /* Increased the width of the box */
+            width: 60%; /* Adjust width for a larger box */
+            max-width: 500px; /* Maximum width for responsiveness */
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* Styling for the image */
+        /* Styling for the profile image */
         .profile-image {
-            width: 150px; /* Adjusted size of the image */
-            height: 150px; /* Adjusted size of the image */
-            border-radius: 50%; /* Makes the image circular */
-            margin-bottom: 20px; /* Adds space between the image and links */
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
         }
 
-        /* Styling for the links */
+        /* Styling for the social media links */
         a {
             text-decoration: none;
             color: black;
             display: block;
+            padding: 10px;
             margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s;
         }
 
         /* Styling for the icons */
         i {
             margin-right: 8px;
         }
+
+        /* Hover effect for social media links */
+        a:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 480px) {
+            .box {
+                width: 90%; /* Adjust width for mobile devices */
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div class="ABHISHEK DEVKOTA">
+    <div class="box">
         <!-- Profile image at the top of the box -->
         <img src="assets/img/image2.jpeg" alt="Profile Image" class="profile-image">
         <h3>Social Media Links</h3>
-        <!-- First table for one set of social media links -->
-        <table>
-            <tr>
-                <td>
-                    <a href="https://www.facebook.com" target="_blank">
-                        <i class="fab fa-facebook-f"></i>Facebook
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://twitter.com" target="_blank">
-                        <i class="fab fa-twitter"></i>Twitter
-                    </a>
-                </td>
-            </tr>
-        </table>
-
-        <!-- Second table for another set of social media links -->
-        <table>
-            <tr>
-                <td>
-                    <a href="https://www.instagram.com" target="_blank">
-                        <i class="fab fa-instagram"></i>Instagram
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="https://www.linkedin.com" target="_blank">
-                        <i class="fab fa-linkedin"></i>LinkedIn
-                    </a>
-                </td>
-            </tr>
-        </table>
+        <!-- Social media links -->
+        <a href="https://www.facebook.com" target="_blank">
+            <i class="fab fa-facebook-f"></i>Facebook
+        </a>
+        <a href="https://twitter.com" target="_blank">
+            <i class="fab fa-twitter"></i>Twitter
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+            <i class="fab fa-instagram"></i>Instagram
+        </a>
+        <a href="https://www.linkedin.com" target="_blank">
+            <i class="fab fa-linkedin"></i>LinkedIn
+        </a>
     </div>
 </body>
 
