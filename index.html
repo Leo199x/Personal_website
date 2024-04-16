@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LÈO</title>
     <!-- Font Awesome CDN -->
@@ -120,7 +121,7 @@
 
         /* Styles for dark mode */
         body.dark-mode {
-            background-image: url("assets/img/dark_background.jpg");
+            background-image: url("assets/img/ho.jpg");
             background-size: cover;
             background-position: center;
             color: white;
@@ -151,7 +152,7 @@
 
         /* Background image for light mode */
         body:not(.dark-mode) {
-            background-image: url("assets/img/light_background.jpg");
+            background-image: url("assets/img/3896707.jpg");
             background-size: cover;
             background-position: center;
         }
@@ -216,10 +217,9 @@
             const text = 'Yea, about that.'; // Initial text for the typing animation
 
             // Call the typing function with the description element, text, and typing speed
-            typeText(descriptionElement, text, 100);
+            typeText(descriptionElement, text, 175);
         };
 
-        // Toggle dark mode
         function toggleMode() {
             const body = document.body;
             const button = document.getElementById('toggleButton');
@@ -228,8 +228,12 @@
             // Toggle dark mode class on body
             body.classList.toggle('dark-mode');
 
-            // Update the button text based on the current mode
-            button.textContent = body.classList.contains('dark-mode') ? '🔆' : '🌙';
+            // Change button text based on current mode
+            if (body.classList.contains('dark-mode')) {
+                button.textContent = '🔆';
+            } else {
+                button.textContent = '🌙';
+            }
 
             // Clear the current text content in the description section
             descriptionElement.textContent = '';
