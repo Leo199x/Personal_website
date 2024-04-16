@@ -9,6 +9,9 @@
     <title>LÈO</title>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (example) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
         /* Styling for the container */
         .container {
@@ -18,9 +21,14 @@
             width: 60%; /* Adjust width for a larger container */
             max-width: 500px; /* Maximum width for responsiveness */
             text-align: center;
-            box-shadow: 0 4px 8px rgb(247, 245, 245);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             /* Remove the border/outline */
             border: none;
+        }
+
+        /* Apply the custom font to the body */
+        body {
+            font-family: 'Poppins', sans-serif;
         }
 
         /* Styling for the profile image */
@@ -42,7 +50,7 @@
         .description-section {
             margin-bottom: 20px;
             font-size: 1em;
-            color: #080808;
+            color: #555;
         }
 
         /* Styling for the social media links */
@@ -127,24 +135,24 @@
         </div>
 
         <!-- Description section -->
-        <div class="description-section">
+        <div class="description-section" id="descriptionSection">
             Yea, about that.
         </div>
 
         <!-- Social media links -->
         <a href="https://www.linkedin.com/in/abhishek-devkota/" target="_blank" class="linkedin-link">
-            <i class="fab fa-linkedin  "></i> LinkedIn
+            <i class="fab fa-linkedin"></i> LinkedIn
         </a>
         <a href="https://github.com/Leo199x/" target="_blank" class="github-link">
-            <i class="fab fa-github  "></i> GitHub
+            <i class="fab fa-github"></i> GitHub
         </a>
         <!-- Email link -->
         <a href="mailto:abhi199x@gmail.com" class="email-link">
-            <i class="fas fa-envelope  "></i> Email
+            <i class="fas fa-envelope"></i> Email
         </a>
         <!-- CV download link -->
-        <a href="assets/img/Abhishek_Devkota_CV.pdf" download class="cv-link">
-            <i class="fas fa-file-download  "></i> CV
+        <a href="assets/img/your_cv_file.pdf" download class="cv-link">
+            <i class="fas fa-file-download"></i> CV
         </a>
     </div>
 
@@ -153,15 +161,20 @@
         function toggleMode() {
             const body = document.body;
             const button = document.getElementById('toggleButton');
+            const descriptionSection = document.getElementById('descriptionSection');
 
             // Toggle dark mode class on body
             body.classList.toggle('dark-mode');
 
             // Change button text based on current mode
             if (body.classList.contains('dark-mode')) {
-                button.textContent = '🔆';
+                button.textContent = 'Switch to Light Mode';
+                // Change description text in dark mode
+                descriptionSection.textContent = 'In the darkness, we thrive.';
             } else {
-                button.textContent = '🌕';
+                button.textContent = 'Switch to Dark Mode';
+                // Change description text in light mode
+                descriptionSection.textContent = 'Yea, about that.';
             }
         }
     </script>
