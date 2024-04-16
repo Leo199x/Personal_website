@@ -246,6 +246,7 @@
             typeText(descriptionElement, text, 100);
         };
 
+        // Toggle dark mode
         function toggleMode() {
             const body = document.body;
             const button = document.getElementById('toggleButton');
@@ -254,12 +255,8 @@
             // Toggle dark mode class on body
             body.classList.toggle('dark-mode');
 
-            // Change button text based on current mode
-            if (body.classList.contains('dark-mode')) {
-                button.textContent = '🔆';
-            } else {
-                button.textContent = '🌙';
-            }
+            // Update the button text based on the current mode
+            button.textContent = body.classList.contains('dark-mode') ? '🔆' : '🌙';
 
             // Clear the current text content in the description section
             descriptionElement.textContent = '';
@@ -288,6 +285,7 @@
             modal.style.display = 'none';
         });
 
+        
     </script>
 </body>
 
