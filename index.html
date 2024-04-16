@@ -19,12 +19,14 @@
             max-width: 500px; /* Maximum width for responsiveness */
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Remove the border/outline */
+            border: none;
         }
 
         /* Styling for the profile image */
         .profile-image {
-            width: 250px;
-            height: 250px;
+            width: 300px;
+            height: 300px;
             border-radius: 50%;
             margin-bottom: 20px;
         }
@@ -48,7 +50,7 @@
             text-decoration: none;
             color: black;
             display: block;
-            padding: 10px;
+            padding: 20px; /* Increase padding for larger rectangles */
             margin-bottom: 10px;
             border-radius: 5px;
             transition: background-color 0.3s;
@@ -80,6 +82,28 @@
             opacity: 0.8;
         }
 
+        /* Styles for dark mode */
+        body.dark-mode {
+            background-color: #333;
+            color: white;
+        }
+
+        /* Adjustments for dark mode links */
+        body.dark-mode a {
+            color: white;
+        }
+
+        /* Styles for the toggle button */
+        .toggle-button {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #555;
+            color: white;
+        }
+
         /* Media queries for responsiveness */
         @media (max-width: 480px) {
             .container {
@@ -90,6 +114,9 @@
 </head>
 
 <body>
+    <!-- Toggle button to switch between light and dark mode -->
+    <button class="toggle-button" id="toggleButton" onclick="toggleMode()">Switch to Dark Mode</button>
+
     <div class="container">
         <!-- Profile image at the top of the container -->
         <img src="assets/img/image2.jpeg" alt="Profile Image" class="profile-image">
@@ -105,21 +132,39 @@
         </div>
 
         <!-- Social media links -->
-        <a href="https://github.com" target="_blank" class="github-link">
-            <i class="fab fa-github"></i>GitHub
+        <a href="https://www.linkedin.com/in/abhishek-devkota/" target="_blank" class="linkedin-link">
+            <i class="fab fa-linkedin"></i> LinkedIn
         </a>
-        <a href="https://www.linkedin.com" target="_blank" class="linkedin-link">
-            <i class="fab fa-linkedin"></i>LinkedIn
+        <a href="https://github.com/Leo199x/" target="_blank" class="github-link">
+            <i class="fab fa-github"></i> GitHub
         </a>
         <!-- Email link -->
-        <a href="abhi199x@gmail.com" class="email-link">
-            <i class="fas fa-envelope"></i>Email
+        <a href="mailto:abhi199x@gmail.com" class="email-link">
+            <i class="fas fa-envelope"></i> Email
         </a>
         <!-- CV download link -->
-        <a href="https://drive.google.com/drive/u/0/home" download class="cv-link">
-            <i class="fas fa-file-download"></i>Download CV
+        <a href="https://docs.google.com/document/d/1pRPRqDus0NKb3jql-l-ry9HLwVboUMeWmC1B-qu3Nco/edit?usp=sharing" download class="cv-link">
+            <i class="fas fa-file-download"></i> CV
         </a>
     </div>
+
+    <!-- JavaScript for toggle button -->
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const button = document.getElementById('toggleButton');
+
+            // Toggle dark mode class on body
+            body.classList.toggle('dark-mode');
+
+            // Change button text based on current mode
+            if (body.classList.contains('dark-mode')) {
+                button.textContent = 'Switch to Light Mode';
+            } else {
+                button.textContent = 'Switch to Dark Mode';
+            }
+        }
+    </script>
 </body>
 
 </html>
