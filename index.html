@@ -10,13 +10,12 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Styling for the box */
-        .box {
-            border: 1px solid #ccc;
+        /* Styling for the container */
+        .container {
             padding: 20px;
             margin: 0 auto;
             border-radius: 10px;
-            width: 60%; /* Adjust width for a larger box */
+            width: 60%; /* Adjust width for a larger container */
             max-width: 500px; /* Maximum width for responsiveness */
             text-align: center;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -30,6 +29,20 @@
             margin-bottom: 20px;
         }
 
+        /* Styling for the name section */
+        .name-section {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        /* Styling for the description section */
+        .description-section {
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #555;
+        }
+
         /* Styling for the social media links */
         a {
             text-decoration: none;
@@ -37,24 +50,39 @@
             display: block;
             padding: 10px;
             margin-bottom: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px; /* Rounded corners */
+            border-radius: 5px;
             transition: background-color 0.3s;
         }
 
-        /* Styling for the icons */
-        i {
-            margin-right: 8px;
+        /* Styling for social media links with different colors */
+        .facebook-link {
+            background-color: #3b5998;
+            color: white;
+        }
+
+        .github-link {
+            background-color: #333;
+            color: white;
+        }
+
+        .instagram-link {
+            background: linear-gradient(45deg, #e1306c, #f77737, #f58529);
+            color: white;
+        }
+
+        .linkedin-link {
+            background-color: #0a66c2;
+            color: white;
         }
 
         /* Hover effect for social media links */
         a:hover {
-            background-color: #f0f0f0;
+            opacity: 0.8;
         }
 
         /* Media queries for responsiveness */
         @media (max-width: 480px) {
-            .box {
+            .container {
                 width: 90%; /* Adjust width for mobile devices */
             }
         }
@@ -62,21 +90,31 @@
 </head>
 
 <body>
-    <div class="box">
-        <!-- Profile image at the top of the box -->
+    <div class="container">
+        <!-- Profile image at the top of the container -->
         <img src="assets/img/image2.jpeg" alt="Profile Image" class="profile-image">
-        <h3>Social Media Links</h3>
+
+        <!-- Name section -->
+        <div class="name-section">
+            ABHISHEK DEVKOTA
+        </div>
+
+        <!-- Description section -->
+        <div class="description-section">
+            Yea, about that.
+        </div>
+
         <!-- Social media links -->
-        <a href="https://www.facebook.com" target="_blank">
+        <a href="https://www.facebook.com" target="_blank" class="facebook-link">
             <i class="fab fa-facebook-f"></i>Facebook
         </a>
-        <a href="https://twitter.com" target="_blank">
-            <i class="fab fa-twitter"></i>Twitter
+        <a href="https://github.com" target="_blank" class="github-link">
+            <i class="fab fa-github"></i>GitHub
         </a>
-        <a href="https://www.instagram.com" target="_blank">
+        <a href="https://www.instagram.com" target="_blank" class="instagram-link">
             <i class="fab fa-instagram"></i>Instagram
         </a>
-        <a href="https://www.linkedin.com" target="_blank">
+        <a href="https://www.linkedin.com" target="_blank" class="linkedin-link">
             <i class="fab fa-linkedin"></i>LinkedIn
         </a>
     </div>
