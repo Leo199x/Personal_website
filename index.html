@@ -165,7 +165,14 @@
             border-bottom: 1px solid #ccc;
             height: 40px;
         }
+        body.dark-mode .dashboard {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
 
+        /* Adjustments for dark mode buttons */
+        body.dark-mode .nav-button {
+            color: white; /* Set buttons to white in dark mode */
+        }
         /* Logo styling */
         .logo {
             width: 50px;
@@ -178,14 +185,15 @@
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            background-color: #f0f0f0;
+            background-color: transparent;
             color: black;
             margin: 0 10px;
             font-weight: bold;
+            font-size: 1em;
         }
 
         .nav-button:hover {
-            background-color: #ddd;
+            background-color: rgba(0, 0, 0, 0.1);
         }
 
         /* Content sections */
