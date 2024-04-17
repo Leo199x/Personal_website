@@ -137,9 +137,9 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            background-color: #555;
+            background-color: #ffffff;
             color: white;
-            margin-right: 10px;
+            margin-left: 10px;
         }
 
         /* Media queries for responsiveness */
@@ -177,8 +177,14 @@
         .logo {
             width: 50px;
             height: 50px;
+            margin-right: 20px; /* Push the logo to the left */
+            margin-left: 20px;
         }
 
+        /* Different logo for dark mode */
+        body.dark-mode .logo {
+            content: url("assets/img/dlogo .png"); /* Change logo for dark mode */
+        }
         /* Button styles */
         .nav-button {
             padding: 10px 15px;
@@ -212,17 +218,18 @@
             gap: 20px;
 
         }
-        .gallery-description {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 0.9em;
-        }
-        .gallery-images img {
+        /* Image styling */
+        .gallery-image img {
             width: 200px;
             height: 200px;
             border-radius: 10px;
             cursor: pointer;
             transition: opacity 0.3s ease;
+        }
+        .gallery-description {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9em;
         }
 
         .gallery-images img:hover {
