@@ -159,54 +159,33 @@
         .dashboard {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 5px;
-            padding-left: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            background-color: #f0f0f0;
             border-bottom: 1px solid #ccc;
-            position: fixed; /* Fixed position at the top */
-            width: 100%;
-            z-index: 10;
         }
 
-        /* Styles for dark mode */
-        body.dark-mode .dashboard {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        /* Adjustments for dark mode buttons */
-        body.dark-mode .nav-button {
-            color: white; /* Set buttons to white in dark mode */
-        }
         /* Logo styling */
         .logo {
             width: 50px;
             height: 50px;
-            margin-right: 20px; /* Push the logo to the left */
-            margin-left: 20px;
         }
 
-        /* Different logo for dark mode */
-        body.dark-mode .logo {
-            content: url("path/to/your/dlogo.png"); /* Change logo for dark mode */
-        }
         /* Button styles */
         .nav-button {
             padding: 10px 15px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            background-color: transparent;
+            background-color: #f0f0f0;
             color: black;
             margin: 0 10px;
-            font-size: 1em;
             font-weight: bold;
         }
 
         .nav-button:hover {
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: #ddd;
         }
+
         /* Content sections */
         .content-section {
             display: none;
@@ -324,23 +303,13 @@
     </div>
 
     <!-- Gallery content section -->
-    <div id="galleryContent" class="gallery-content content-section">
-        <!-- Individual gallery images with descriptions -->
-        <div class="gallery-image">
+    <div id="galleryContent" class="container content-section">
+        <!-- Gallery images -->
+        <div class="gallery-images">
             <img src="assets/img/1.png" alt="Gallery Image 1" onclick="previewImage(this)">
-            <p class="gallery-description">Description for Image 1</p>
-        </div>
-        <div class="gallery-image">
             <img src="assets/img/2.jpg" alt="Gallery Image 2" onclick="previewImage(this)">
-            <p class="gallery-description">Description for Image 2</p>
-        </div>
-        <div class="gallery-image">
             <img src="assets/img/3.jpg" alt="Gallery Image 3" onclick="previewImage(this)">
-            <p class="gallery-description">Description for Image 3</p>
-        </div>
-        <div class="gallery-image">
             <img src="assets/img/or.png" alt="Gallery Image 4" onclick="previewImage(this)">
-            <p class="gallery-description">Description for Image 4</p>
         </div>
     </div>
 
