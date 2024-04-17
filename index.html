@@ -23,7 +23,7 @@
         .dashboard {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: space-between;
             padding: 5px;
             padding-left: 40px;
             height: 40px;
@@ -57,7 +57,7 @@
         }
 
         /* Button styles */
-        .nav-button {
+        .nav-button, .toggle-button {
             padding: 10px 15px;
             cursor: pointer;
             border: none;
@@ -67,7 +67,7 @@
             font-weight: bold;
             font-size: 1em; /* Increase the font size */
         
-            margin-left: auto        
+            margin-left: 10px        
         }
 
         .nav-button:hover {
@@ -200,13 +200,14 @@
 
         /* Styles for the toggle button */
         .toggle-button {
+            display: inline-block;
             padding: 10px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             background-color: #555;
             color: white;
-            margin-left: auto;
+            z-index: 100;
         }
 
         /* Media queries for responsiveness */
