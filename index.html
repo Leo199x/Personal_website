@@ -57,8 +57,7 @@
         }
 
         /* Button styles */
-        .nav-button,
-        .toggle-button {
+        .nav-button {
             padding: 10px 15px;
             cursor: pointer;
             border: none;
@@ -68,7 +67,7 @@
             font-weight: bold;
             font-size: 1em; /* Increase the font size */
         
-            margin-left: -5px;
+            margin-left: auto        
         }
 
         .nav-button:hover {
@@ -87,7 +86,7 @@
 
         /* Styling for the container */
         .container {
-            padding: 10px;
+            padding: 5px;
             margin: 0 auto;
             border-radius: 10px;
             width: 60%; /* Adjust width for a larger container */
@@ -98,12 +97,10 @@
             border: none;
             /* Position relative for the pseudo-element */
             position: relative;
-            height: 50px;
         }
 
         /* Pseudo-element for blurred effect behind the box in light mode */
-        body:not(.dark-mode) .container::before, 
-        body.dark-mode .container::before{
+        body:not(.dark-mode) .container::before {
             content: '';
             position: absolute;
             top: 0;
@@ -209,6 +206,7 @@
             cursor: pointer;
             background-color: #555;
             color: white;
+            margin-left: auto;
         }
 
         /* Media queries for responsiveness */
@@ -276,8 +274,8 @@
         }
 
         /* Adjustments for the gallery section */
-        .gallery-content .dashboard {
-            height: 30px; /* Reduced dashboard height for gallery section */
+        .gallery-dashboard {
+            height: 40px; /* Reduced dashboard height for gallery section */
         }
 
         /* Modal styling */
