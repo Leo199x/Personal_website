@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LÈO</title>
     <!-- Font Awesome CDN -->
@@ -134,7 +133,6 @@
 
         /* Styles for the toggle button */
         .toggle-button {
-            margin-bottom: 20px;
             padding: 10px;
             border: none;
             border-radius: 5px;
@@ -156,14 +154,65 @@
             background-size: cover;
             background-position: center;
         }
+
+        /* Dashboard styles */
+        .dashboard {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ccc;
+        }
+
+        /* Logo styling */
+        .logo {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Button styles */
+        .nav-button {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            color: black;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .nav-button:hover {
+            background-color: #ddd;
+        }
+
+        /* Content sections */
+        .content-section {
+            display: none;
+        }
+
+        /* Show the current page */
+        .current-page {
+            display: block;
+        }
     </style>
 </head>
 
 <body>
-    <!-- Toggle button to switch between light and dark mode -->
-    <button class="toggle-button" id="toggleButton" onclick="toggleMode()">Switch to Dark Mode</button>
+    <!-- Dashboard with logo, navigation buttons, and dark mode toggle -->
+    <div class="dashboard">
+        <img src="assets/img/logo.png" alt="Logo" class="logo">
 
-    <div class="container">
+        <button class="nav-button" id="homeButton">Home</button>
+        <button class="nav-button" id="galleryButton">Gallery</button>
+
+        <!-- Toggle button to switch between light and dark mode -->
+        <button class="toggle-button" id="toggleButton" onclick="toggleMode()">🌙</button>
+    </div>
+
+    <!-- Home content section -->
+    <div id="homeContent" class="container content-section current-page">
         <!-- Profile image at the top of the container -->
         <img src="assets/img/image2.jpeg" alt="Profile Image" class="profile-image">
 
@@ -194,7 +243,18 @@
         </a>
     </div>
 
-    <!-- JavaScript for toggle button and typing animation -->
+    <!-- Gallery content section -->
+    <div id="galleryContent" class="container content-section">
+        <h2>Gallery</h2>
+        <div class="gallery-images">
+            <img src="assets/img/dark1.jpg" alt="Gallery Image 1" style="width: 100%;">
+            <img src="assets/img/2.jpg" alt="Gallery Image 2" style="width: 100%;">
+            <img src="assets/img/3.jpg" alt="Gallery Image 3" style="width: 100%;">
+            <img src="assets/img/or.png" alt= "Gallery Image 4" style="width: 100%;">
+        </div>
+    </div>
+
+    <!-- JavaScript for navigation, toggle button, and typing animation -->
     <script>
         // Typing animation function
         function typeText(element, text, speed = 175) {
@@ -220,6 +280,7 @@
             typeText(descriptionElement, text, 175);
         };
 
+        // Toggle dark mode
         function toggleMode() {
             const body = document.body;
             const button = document.getElementById('toggleButton');
@@ -228,12 +289,8 @@
             // Toggle dark mode class on body
             body.classList.toggle('dark-mode');
 
-            // Change button text based on current mode
-            if (body.classList.contains('dark-mode')) {
-                button.textContent = '🔆';
-            } else {
-                button.textContent = '🌙';
-            }
+            // Update the button text based on the current mode
+            button.textContent = body.classList.contains('dark-mode') ? '🔆' : '🌙';
 
             // Clear the current text content in the description section
             descriptionElement.textContent = '';
@@ -242,6 +299,19 @@
             const text = 'Yea, about that.';
             typeText(descriptionElement, text, 175);
         }
+
+        // Navigation event handlers
+        document.getElementById('homeButton').addEventListener('click', function() {
+            // Show Home content and hide Gallery content
+            document.getElementById('homeContent').classList.add('current-page');
+            document.getElementById('galleryContent').classList.remove('current-page');
+        });
+
+        document.getElementById('galleryButton').addEventListener('click', function() {
+            // Show Gallery content and hide Home content
+            document.getElementById('galleryContent').classList.add('current-page');
+            document.getElementById('homeContent').classList.remove('current-page');
+        });
     </script>
 </body>
 
