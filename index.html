@@ -139,7 +139,7 @@
             cursor: pointer;
             background-color: #ffffff;
             color: white;
-            margin-left: 10px;
+            margin-left: 60px;
         }
 
         /* Media queries for responsiveness */
@@ -162,7 +162,6 @@
             align-items: center;
             padding: 10px;
             background-color: transparent;
-            border-bottom: 1px solid #ccc;
             height: 40px;
         }
         body.dark-mode .dashboard {
@@ -211,7 +210,10 @@
         .current-page {
             display: block;
         }
-
+        .gallery-content {
+            margin: 30px auto 0 auto; /* Adjust top margin for fixed navbar */
+            text-align: center;
+        }
         /* Gallery styles */
         .gallery-images {
             display: inline-block;
@@ -385,7 +387,7 @@
             body.classList.toggle('dark-mode');
 
             // Update the button text based on the current mode
-            button.textContent = body.classList.contains('dark-mode') ? '🔆' : '🌙';
+            button.textContent = body.classList.contains('dark-mode') ? '🔆' : '🌒';
 
             // Clear the current text content in the description section
             descriptionElement.textContent = '';
