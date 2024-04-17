@@ -22,8 +22,8 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            padding: 3px;
-            padding-left: 20px;
+            padding: 5px;
+            padding-left: 40px;
             background-color: rgba(255, 255, 255, 0.5);
             border-bottom: 1px solid #ccc;
             position: fixed; /* Fixed position at the top */
@@ -36,15 +36,26 @@
             background-color: rgba(0, 0, 0, 0.5);
         }
 
+        /* Adjustments for dark mode buttons */
+        body.dark-mode .nav-button {
+            color: white; /* Set buttons to white in dark mode */
+        }
         /* Logo styling */
         .logo {
             width: 50px;
             height: 50px;
-            margin-right: auto; /* Push the logo to the left */
+            margin-right: 20px; /* Push the logo to the left */
+            margin-left: 20px;
+        }
+
+        /* Different logo for dark mode */
+        body.dark-mode .logo {
+            content: url("path/to/your/dark-mode-logo.png"); /* Change logo for dark mode */
         }
 
         /* Button styles */
-        .nav-button {
+        .nav-button,
+        .toggle-button {
             padding: 10px 15px;
             cursor: pointer;
             border: none;
@@ -53,7 +64,8 @@
             color: black;
             font-weight: bold;
             font-size: 1em; /* Increase the font size */
-            margin-left: 5px;
+            margin-right: 5px;
+            margin-left: 0px;
         }
 
         .nav-button:hover {
@@ -73,9 +85,9 @@
         /* Styling for the container */
         .container {
             padding: 10px;
-            margin: 70px auto 0 auto;
+            margin: 0 auto;
             border-radius: 10px;
-            width: 50%; /* Adjust width for a larger container */
+            width: 60%; /* Adjust width for a larger container */
             max-width: 500px; /* Maximum width for responsiveness */
             text-align: center;
             box-shadow: 0 4px 8px rgb(247, 245, 245);
