@@ -139,7 +139,7 @@
             cursor: pointer;
             background-color: #5f5b5bb2;
             color: white;
-            margin-left: 560px;
+            margin-left: 1000px;
         }
 
         /* Media queries for responsiveness */
@@ -216,6 +216,7 @@
             display: flex; /* Use flexbox to align items horizontally */
             flex-wrap: wrap; /* Allow items to wrap to the next line */
             justify-content: center; /* Center items horizontally */
+            gap: 10px;
         }
 
         /* Gallery styles */
@@ -402,17 +403,26 @@
         }
 
         // Navigation event handlers
+        // Hide gallery content when the page loads
+        window.onload = function() {
+            document.getElementById('galleryContent').style.display = 'none';
+        };
+
+        // Navigation event handlers
         document.getElementById('homeButton').addEventListener('click', function() {
             // Show Home content and hide Gallery content
             document.getElementById('homeContent').classList.add('current-page');
             document.getElementById('galleryContent').classList.remove('current-page');
+            document.getElementById('galleryContent').style.display = 'none'; // Hide gallery content when switching to home
         });
 
         document.getElementById('galleryButton').addEventListener('click', function() {
             // Show Gallery content and hide Home content
             document.getElementById('galleryContent').classList.add('current-page');
             document.getElementById('homeContent').classList.remove('current-page');
+            document.getElementById('galleryContent').style.display = 'flex'; // Show gallery content when switching to gallery
         });
+
 
         // Image preview function
         function previewImage(image) {
