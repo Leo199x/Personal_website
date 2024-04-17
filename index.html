@@ -17,10 +17,62 @@
             font-family: 'Poppins', sans-serif;
         }
 
+        /* Dashboard styles */
+        .dashboard {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid #ccc;
+            position: fixed; /* Fixed position at the top */
+            width: 100%;
+            z-index: 10;
+        }
+
+        /* Styles for dark mode */
+        body.dark-mode .dashboard {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Logo styling */
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: auto; /* Push the logo to the left */
+        }
+
+        /* Button styles */
+        .nav-button {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: transparent;
+            color: black;
+            font-weight: bold;
+            font-size: 1.2em; /* Increase the font size */
+            margin-left: 10px;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        /* Home and Gallery sections */
+        .content-section {
+            display: none;
+        }
+
+        /* Show the current page */
+        .current-page {
+            display: block;
+        }
+
         /* Styling for the container */
         .container {
             padding: 20px;
-            margin: 0 auto;
+            margin: 70px auto 0 auto; /* Adjust top margin for fixed navbar */
             border-radius: 10px;
             width: 60%; /* Adjust width for a larger container */
             max-width: 500px; /* Maximum width for responsiveness */
@@ -118,93 +170,19 @@
             opacity: 0.8;
         }
 
-        /* Styles for dark mode */
-        body.dark-mode {
-            background-image: url("assets/img/ho.jpg");
-            background-size: cover;
-            background-position: center;
-            color: white;
+        /* Gallery section styling */
+        .gallery-content {
+            margin: 70px auto 0 auto; /* Adjust top margin for fixed navbar */
+            text-align: center;
         }
 
-        /* Adjustments for dark mode links */
-        body.dark-mode a {
-            color: white;
+        .gallery-image {
+            display: inline-block;
+            margin-right: 10px;
         }
 
-        /* Styles for the toggle button */
-        .toggle-button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #555;
-            color: white;
-        }
-
-        /* Media queries for responsiveness */
-        @media (max-width: 480px) {
-            .container {
-                width: 90%; /* Adjust width for mobile devices */
-            }
-        }
-
-        /* Background image for light mode */
-        body:not(.dark-mode) {
-            background-image: url("assets/img/3896707.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Dashboard styles */
-        .dashboard {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            background-color: #f0f0f0;
-            border-bottom: 1px solid #ccc;
-        }
-
-        /* Logo styling */
-        .logo {
-            width: 50px;
-            height: 50px;
-        }
-
-        /* Button styles */
-        .nav-button {
-            padding: 10px 15px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: #f0f0f0;
-            color: black;
-            margin: 0 10px;
-            font-weight: bold;
-        }
-
-        .nav-button:hover {
-            background-color: #ddd;
-        }
-
-        /* Content sections */
-        .content-section {
-            display: none;
-        }
-
-        /* Show the current page */
-        .current-page {
-            display: block;
-        }
-
-        /* Gallery styles */
-        .gallery-images {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .gallery-images img {
+        /* Image styling */
+        .gallery-image img {
             width: 200px;
             height: 200px;
             border-radius: 10px;
@@ -212,7 +190,15 @@
             transition: opacity 0.3s ease;
         }
 
-        .gallery-images img:hover {
+        /* Description styling */
+        .gallery-description {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+
+        /* Hover effect for images */
+        .gallery-image img:hover {
             opacity: 0.7;
         }
 
@@ -303,13 +289,23 @@
     </div>
 
     <!-- Gallery content section -->
-    <div id="galleryContent" class="container content-section">
-        <!-- Gallery images -->
-        <div class="gallery-images">
+    <div id="galleryContent" class="gallery-content content-section">
+        <!-- Individual gallery images with descriptions -->
+        <div class="gallery-image">
             <img src="assets/img/1.png" alt="Gallery Image 1" onclick="previewImage(this)">
+            <p class="gallery-description">Description for Image 1</p>
+        </div>
+        <div class="gallery-image">
             <img src="assets/img/2.jpg" alt="Gallery Image 2" onclick="previewImage(this)">
+            <p class="gallery-description">Description for Image 2</p>
+        </div>
+        <div class="gallery-image">
             <img src="assets/img/3.jpg" alt="Gallery Image 3" onclick="previewImage(this)">
+            <p class="gallery-description">Description for Image 3</p>
+        </div>
+        <div class="gallery-image">
             <img src="assets/img/or.png" alt="Gallery Image 4" onclick="previewImage(this)">
+            <p class="gallery-description">Description for Image 4</p>
         </div>
     </div>
 
