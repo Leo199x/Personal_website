@@ -158,7 +158,6 @@
         /* Dashboard styles */
         .dashboard {
             display: flex;
-            justify-content: space-between;
             align-items: center;
             padding: 10px;
             background-color: #f0f0f0;
@@ -196,6 +195,66 @@
         .current-page {
             display: block;
         }
+
+        /* Gallery styles */
+        .gallery-images {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .gallery-images img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-images img:hover {
+            opacity: 0.7;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        /* Close button */
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #999;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 
@@ -245,16 +304,22 @@
 
     <!-- Gallery content section -->
     <div id="galleryContent" class="container content-section">
-        <h2>Gallery</h2>
+        <!-- Gallery images -->
         <div class="gallery-images">
-            <img src="assets/img/dark1.jpg" alt="Gallery Image 1" style="width: 100%;">
-            <img src="assets/img/2.jpg" alt="Gallery Image 2" style="width: 100%;">
-            <img src="assets/img/3.jpg" alt="Gallery Image 3" style="width: 100%;">
-            <img src="assets/img/or.png" alt= "Gallery Image 4" style="width: 100%;">
+            <img src="assets/img/1.png" alt="Gallery Image 1" onclick="previewImage(this)">
+            <img src="assets/img/2.jpg" alt="Gallery Image 2" onclick="previewImage(this)">
+            <img src="assets/img/3.jpg" alt="Gallery Image 3" onclick="previewImage(this)">
+            <img src="assets/img/or.png" alt="Gallery Image 4" onclick="previewImage(this)">
         </div>
     </div>
 
-    <!-- JavaScript for navigation, toggle button, and typing animation -->
+    <!-- Modal to preview images -->
+    <div id="imageModal" class="modal">
+        <span class="close" id="closeModal">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- JavaScript for toggle button, navigation, and image preview -->
     <script>
         // Typing animation function
         function typeText(element, text, speed = 175) {
@@ -312,6 +377,31 @@
             document.getElementById('galleryContent').classList.add('current-page');
             document.getElementById('homeContent').classList.remove('current-page');
         });
+
+        // Image preview function
+        function previewImage(image) {
+            const modal = document.getElementById('imageModal');
+            const modalImage = document.getElementById('modalImage');
+
+            // Set the src of the modal image to the clicked image's src
+            modalImage.src = image.src;
+
+            // Display the modal
+            modal.style.display = 'block';
+        }
+
+        // Close modal function
+        document.getElementById('closeModal').onclick = function() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside the modal content
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        }
     </script>
 </body>
 
