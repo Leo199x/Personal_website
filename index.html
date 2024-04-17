@@ -22,7 +22,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            padding: 10px;
+            padding: 8px 20px; /* Adjusted padding to reduce height */
             background-color: rgba(255, 255, 255, 0.5);
             border-bottom: 1px solid #ccc;
             position: fixed; /* Fixed position at the top */
@@ -35,26 +35,47 @@
             background-color: rgba(0, 0, 0, 0.5);
         }
 
+        /* Background image for light mode */
+        body:not(.dark-mode) {
+            background-image: url("assets/img/3896707.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Background image for dark mode */
+        body.dark-mode {
+            background-image: url("assets/img/ho.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
         /* Logo styling */
         .logo {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             margin-right: auto; /* Push the logo to the left */
         }
 
         /* Button styles */
         .nav-button {
-            padding: 10px 15px;
+            padding: 8px 15px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
             background-color: transparent;
             color: black;
             font-weight: bold;
-            font-size: 1.2em; /* Increase the font size */
+            font-size: 1.2em; /* Increased the font size */
             margin-left: 10px;
         }
 
+        /* Button styles in dark mode */
+        body.dark-mode .nav-button {
+            color: white;
+        }
+
+        /* Adjust button hover color */
         .nav-button:hover {
             background-color: rgba(0, 0, 0, 0.1);
         }
@@ -72,10 +93,10 @@
         /* Styling for the container */
         .container {
             padding: 20px;
-            margin: 70px auto 0 auto; /* Adjust top margin for fixed navbar */
+            margin: 70px auto 0 auto; /* Adjusted top margin for fixed navbar */
             border-radius: 10px;
-            width: 60%; /* Adjust width for a larger container */
-            max-width: 500px; /* Maximum width for responsiveness */
+            width: 50%; /* Adjust width to reduce size */
+            max-width: 450px; /* Maximum width for responsiveness */
             text-align: center;
             box-shadow: 0 4px 8px rgb(247, 245, 245);
             /* Remove the border/outline */
@@ -84,38 +105,10 @@
             position: relative;
         }
 
-        /* Pseudo-element for blurred effect behind the box in light mode */
-        body:not(.dark-mode) .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            /* Background for the blur effect in light mode */
-            background-color: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-            z-index: -1; /* Place behind the content */
-        }
-
-        /* Pseudo-element for blurred effect behind the box in dark mode */
-        body.dark-mode .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            /* Background for the blur effect in dark mode */
-            background-color: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            z-index: -1; /* Place behind the content */
-        }
-
         /* Styling for the profile image */
         .profile-image {
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
             border-radius: 50%;
             margin-bottom: 20px;
         }
@@ -176,6 +169,7 @@
             text-align: center;
         }
 
+        /* Adjusted image size */
         .gallery-image {
             display: inline-block;
             margin-right: 10px;
@@ -183,8 +177,8 @@
 
         /* Image styling */
         .gallery-image img {
-            width: 200px;
-            height: 200px;
+            width: 250px; /* Increased image size */
+            height: 250px;
             border-radius: 10px;
             cursor: pointer;
             transition: opacity 0.3s ease;
