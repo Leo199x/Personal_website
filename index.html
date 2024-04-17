@@ -200,14 +200,14 @@
 
         /* Styles for the toggle button */
         .toggle-button {
-            display: inline-block;
+            display: inline-block; /* Should make the button visible */
             padding: 10px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             background-color: #555;
             color: white;
-            z-index: 100;
+            z-index: 100; /* Make sure the button is above other elements */
         }
 
         /* Media queries for responsiveness */
@@ -246,6 +246,7 @@
         .gallery-content {
             margin: 30px auto 0 auto; /* Adjust top margin for fixed navbar */
             text-align: center;
+            height: 30px;
         }
 
         .gallery-image {
