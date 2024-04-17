@@ -139,6 +139,7 @@
             cursor: pointer;
             background-color: #555;
             color: white;
+            margin-right: 10px;
         }
 
         /* Media queries for responsiveness */
@@ -160,8 +161,9 @@
             display: flex;
             align-items: center;
             padding: 10px;
-            background-color: #f0f0f0;
+            background-color: transparent;
             border-bottom: 1px solid #ccc;
+            height: 40px;
         }
 
         /* Logo styling */
@@ -198,12 +200,15 @@
 
         /* Gallery styles */
         .gallery-images {
-            display: flex;
+            display: inline-block;
             gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
 
+        }
+        .gallery-description {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
         .gallery-images img {
             width: 200px;
             height: 200px;
@@ -303,13 +308,23 @@
     </div>
 
     <!-- Gallery content section -->
-    <div id="galleryContent" class="container content-section">
-        <!-- Gallery images -->
-        <div class="gallery-images">
+    <div id="galleryContent" class="gallery-content content-section">
+        <!-- Individual gallery images with descriptions -->
+        <div class="gallery-image">
             <img src="assets/img/1.png" alt="Gallery Image 1" onclick="previewImage(this)">
+            <p class="gallery-description">Description for Image 1</p>
+        </div>
+        <div class="gallery-image">
             <img src="assets/img/2.jpg" alt="Gallery Image 2" onclick="previewImage(this)">
+            <p class="gallery-description">Description for Image 2</p>
+        </div>
+        <div class="gallery-image">
             <img src="assets/img/3.jpg" alt="Gallery Image 3" onclick="previewImage(this)">
+            <p class="gallery-description">Description for Image 3</p>
+        </div>
+        <div class="gallery-image">
             <img src="assets/img/or.png" alt="Gallery Image 4" onclick="previewImage(this)">
+            <p class="gallery-description">Description for Image 4</p>
         </div>
     </div>
 
