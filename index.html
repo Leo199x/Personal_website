@@ -15,78 +15,11 @@
         /* Apply the custom font to the body */
         body {
             font-family: 'Poppins', sans-serif;
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Dashboard styles */
-        .dashboard {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 5px;
-            padding-left: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-bottom: 1px solid #ccc;
-            position: fixed; /* Fixed position at the top */
-            width: 100%;
-            z-index: 10;
-        }
-
-        /* Styles for dark mode */
-        body.dark-mode .dashboard {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        /* Adjustments for dark mode buttons */
-        body.dark-mode .nav-button {
-            color: white; /* Set buttons to white in dark mode */
-        }
-        /* Logo styling */
-        .logo {
-            width: 50px;
-            height: 50px;
-            margin-right: 20px; /* Push the logo to the left */
-            margin-left: 20px;
-        }
-
-        /* Different logo for dark mode */
-        body.dark-mode .logo {
-            content: url("path/to/your/dlogo.png"); /* Change logo for dark mode */
-        }
-
-        /* Button styles */
-        .nav-button, .toggle-button {
-            padding: 10px 15px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: transparent;
-            color: black;
-            font-weight: bold;
-            font-size: 1em; /* Increase the font size */
-        
-            margin-left: 10px        
-        }
-
-        .nav-button:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
-
-        /* Home and Gallery sections */
-        .content-section {
-            display: none;
-        }
-
-        /* Show the current page */
-        .current-page {
-            display: block;
         }
 
         /* Styling for the container */
         .container {
-            padding: 5px;
+            padding: 20px;
             margin: 0 auto;
             border-radius: 10px;
             width: 60%; /* Adjust width for a larger container */
@@ -200,14 +133,12 @@
 
         /* Styles for the toggle button */
         .toggle-button {
-            display: inline-block; /* Should make the button visible */
             padding: 10px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             background-color: #555;
             color: white;
-            z-index: 100; /* Make sure the button is above other elements */
         }
 
         /* Media queries for responsiveness */
@@ -222,16 +153,60 @@
             background-image: url("assets/img/3896707.jpg");
             background-size: cover;
             background-position: center;
-            color: black;
         }
 
+        /* Dashboard styles */
+        .dashboard {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            padding-left: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid #ccc;
+            position: fixed; /* Fixed position at the top */
+            width: 100%;
+            z-index: 10;
+        }
+
+        /* Styles for dark mode */
+        body.dark-mode .dashboard {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Adjustments for dark mode buttons */
+        body.dark-mode .nav-button {
+            color: white; /* Set buttons to white in dark mode */
+        }
         /* Logo styling */
         .logo {
             width: 50px;
             height: 50px;
-            margin-right: auto;
+            margin-right: 20px; /* Push the logo to the left */
+            margin-left: 20px;
         }
 
+        /* Different logo for dark mode */
+        body.dark-mode .logo {
+            content: url("path/to/your/dlogo.png"); /* Change logo for dark mode */
+        }
+        /* Button styles */
+        .nav-button {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: transparent;
+            color: black;
+            margin: 0 10px;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
         /* Content sections */
         .content-section {
             display: none;
@@ -242,20 +217,15 @@
             display: block;
         }
 
-        /* Gallery section styling */
-        .gallery-content {
-            margin: 30px auto 0 auto; /* Adjust top margin for fixed navbar */
-            text-align: center;
-            height: 30px;
+        /* Gallery styles */
+        .gallery-images {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .gallery-image {
-            display: inline-block;
-            margin-right: 10px;
-        }
-
-        /* Image styling */
-        .gallery-image img {
+        .gallery-images img {
             width: 200px;
             height: 200px;
             border-radius: 10px;
@@ -263,21 +233,8 @@
             transition: opacity 0.3s ease;
         }
 
-        /* Description styling */
-        .gallery-description {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 0.9em;
-        }
-
-        /* Hover effect for images */
-        .gallery-image img:hover {
+        .gallery-images img:hover {
             opacity: 0.7;
-        }
-
-        /* Adjustments for the gallery section */
-        .gallery-content .dashboard {
-            height: 20px; /* Reduced dashboard height for gallery section */
         }
 
         /* Modal styling */
@@ -365,7 +322,6 @@
             <i class="fas fa-file-download"></i> CV
         </a>
     </div>
-
 
     <!-- Gallery content section -->
     <div id="galleryContent" class="gallery-content content-section">
