@@ -165,17 +165,28 @@
         }
 
         /* Dashboard styles */
+        /* Dashboard styles */
         .dashboard {
             display: flex;
             align-items: center;
+            justify-content: flex-end; /* This moves the buttons to the right */
             padding: 10px;
-            background-color: transparent;
+            background-color: transparent; /* Make the background transparent */
             height: 40px;
         }
 
         body.dark-mode .dashboard {
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.5); /* Optional: slightly darken the dashboard in dark mode */
         }
+
+        /* Logo styling */
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 20px; /* Push the logo to the left */
+            margin-left: 20px;
+        }
+
 
         /* Adjustments for dark mode buttons */
         body.dark-mode .nav-button {
@@ -206,6 +217,7 @@
             font-weight: bold;
             font-size: 1em;
             margin-right: 50px;
+            margin-left: auto;
         }
 
         .nav-button:hover {
@@ -236,7 +248,7 @@
 
         /* Different background images for gallery in light and dark mode */
         body:not(.dark-mode) .gallery-content {
-            background-image: url("assets/img/fib_w.jpeg");
+            background-image: url("assets/img/3896707.jpg");
         }
 
         body.dark-mode .gallery-content {
