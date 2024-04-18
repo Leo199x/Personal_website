@@ -1,69 +1,56 @@
-/*!
-    * Start Bootstrap - Freelancer v6.0.5 (https://startbootstrap.com/theme/freelancer)
-    * Copyright 2013-2020 Start Bootstrap
-    * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-freelancer/blob/master/LICENSE)
-    */
-    (function($) {
-    "use strict"; // Start of use strict
-  
-    // Smooth scrolling using jQuery easing
-    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
-      if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-        if (target.length) {
-          $('html, body').animate({
-            scrollTop: (target.offset().top - 71)
-          }, 1000, "easeInOutExpo");
-          return false;
-        }
+// Typing animation function
+function typeText(element, text, speed = 175) {
+  let i = 0;
+
+  function type() {
+      if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, speed);
       }
-    });
-  
-    // Scroll to top button appear
-    $(document).scroll(function() {
-      var scrollDistance = $(this).scrollTop();
-      if (scrollDistance > 100) {
-        $('.scroll-to-top').fadeIn();
-      } else {
-        $('.scroll-to-top').fadeOut();
-      }
-    });
-  
-    // Closes responsive menu when a scroll trigger link is clicked
-    $('.js-scroll-trigger').click(function() {
-      $('.navbar-collapse').collapse('hide');
-    });
-  
-    // Activate scrollspy to add active class to navbar items on scroll
-    $('body').scrollspy({
-      target: '#mainNav',
-      offset: 80
-    });
-  
-    // Collapse Navbar
-    var navbarCollapse = function() {
-      if ($("#mainNav").offset().top > 100) {
-        $("#mainNav").addClass("navbar-shrink");
-      } else {
-        $("#mainNav").removeClass("navbar-shrink");
-      }
-    };
-    // Collapse now if page is not at top
-    navbarCollapse();
-    // Collapse the navbar when page is scrolled
-    $(window).scroll(navbarCollapse);
-  
-    // Floating label headings for the contact form
-    $(function() {
-      $("body").on("input propertychange", ".floating-label-form-group", function(e) {
-        $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
-      }).on("focus", ".floating-label-form-group", function() {
-        $(this).addClass("floating-label-form-group-with-focus");
-      }).on("blur", ".floating-label-form-group", function() {
-        $(this).removeClass("floating-label-form-group-with-focus");
-      });
-    });
-  
-  })(jQuery); // End of use strict
-  
+  }
+
+  type();
+}
+
+// Initialize typing animation on page load
+window.onload = function() {
+  const descriptionElement = document.getElementById('description');
+  const text = 'Yea, about that.'; // Initial text for the typing animation
+
+  // Call the typing function with the description element, text, and typing speed
+  typeText(descriptionElement, text, 175);
+};
+
+// Toggle dark mode
+document.getElementById('toggleButton').addEventListener('click', function() {
+  const body = document.body;
+  const button = document.getElementById('toggleButton');
+  const descriptionElement = document.getElementById('description');
+
+  // Toggle dark mode class on body
+  body.classList.toggle('dark-mode');
+
+  // Update the button text based on the current mode
+  button.textContent = body.classList.contains('dark-mode') ? '🌙' : '🔆';
+
+  // Clear the current text content in the description section
+  descriptionElement.textContent = '';
+
+  // Restart the typing animation with the desired text
+  const text = 'Yea, about that.';
+  typeText(descriptionElement, text, 175);
+});
+
+// Navigation event handlers
+document.getElementById('homeButton').addEventListener('click', function() {
+  // Show Home content and hide Gallery content
+  document.getElementById('homeContent').classList.add('current-page');
+  document.getElementById('galleryContent').classList.remove('current-page');
+});
+
+document.getElementById('galleryButton').addEventListener('click', function() {
+  // Show Gallery content and hide Home content
+  document.getElementById('galleryContent').classList.add('current-page');
+  document.getElementById('homeContent').classList.remove('current-page');
+});

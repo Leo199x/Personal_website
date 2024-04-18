@@ -1,339 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LÈO</title>
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts link -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Apply the custom font to the body */
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Styling for the container */
-        .container {
-            padding: 20px;
-            margin: 0 auto;
-            border-radius: 10px;
-            width: 60%; /* Adjust width for a larger container */
-            max-width: 500px; /* Maximum width for responsiveness */
-            text-align: center;
-            box-shadow: 0 4px 8px rgb(247, 245, 245);
-            /* Remove the border/outline */
-            border: none;
-            /* Position relative for the pseudo-element */
-            position: relative;
-        }
-
-        /* Pseudo-element for blurred effect behind the box in light mode */
-        body:not(.dark-mode) .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            /* Background for the blur effect in light mode */
-            background-color: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-            z-index: -1; /* Place behind the content */
-        }
-
-        /* Pseudo-element for blurred effect behind the box in dark mode */
-        body.dark-mode .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            /* Background for the blur effect in dark mode */
-            background-color: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            z-index: -1; /* Place behind the content */
-        }
-
-        /* Styling for the profile image */
-        .profile-image {
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-        }
-
-        /* Styling for the name section */
-        .name-section {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        /* Styling for the description section */
-        .description-section {
-            margin-bottom: 20px;
-            font-size: 1em;
-        }
-
-        /* Styling for the social media links */
-        a {
-            text-decoration: none;
-            color: black;
-            display: block;
-            padding: 20px; /* Increase padding for larger rectangles */
-            margin-bottom: 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        /* Styling for social media links with different colors */
-        .github-link {
-            background-color: #333;
-            color: white;
-        }
-
-        .linkedin-link {
-            background-color: #0a66c2;
-            color: white;
-        }
-
-        .email-link {
-            background-color: #2C3E50;
-            color: white;
-        }
-
-        .cv-link {
-            background-color: #8e44ad;
-            color: white;
-        }
-
-        /* Hover effect for social media links */
-        a:hover {
-            opacity: 0.8;
-        }
-
-        /* Styles for dark mode */
-        body.dark-mode {
-            color: white;
-        }
-
-        /* Adjustments for dark mode links */
-        body.dark-mode a {
-            color: white;
-        }
-
-        /* Styles for the toggle button */
-        .toggle-button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            background-color: #5f5b5bb2;
-            color: white;
-            margin-left: 1050px;
-        }
-
-        /* Media queries for responsiveness */
-        @media (max-width: 480px) {
-            .container {
-                width: 90%; /* Adjust width for mobile devices */
-            }
-        }
-
-        /* Background image for home page in light mode */
-        body#home-page:not(.dark-mode) {
-            background-image: url("assets/img/3896707.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Background image for gallery page in light mode */
-        body#gallery-page:not(.dark-mode) {
-            background-image: url("assets/img/3896707.jpg");
-            background-size: cover;
-            background-position: center center;
-            height: 100vh; /* Ensure body fills the entire viewport vertically */
-            margin: 0; /* Reset margin */
-        }
-
-        /* Background image for gallery page in dark mode */
-        body#gallery-page.dark-mode {
-            background-image: url("assets/img/hop.jpg");
-            background-size: cover;
-            background-position: center center;
-            height: 100vh; /* Ensure body fills the entire viewport vertically */
-            margin: 0; /* Reset margin */
-        }
-
-        /* Background image for home page in dark mode */
-        body#home-page.dark-mode {
-            background-image: url("assets/img/hop.jpg");
-            background-size: cover;
-            background-position: center;
-        }
-
-        /* Dashboard styles */
-        .dashboard {
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            background-color: transparent;
-            height: 40px;
-        }
-        body.dark-mode .dashboard {
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        /* Adjustments for dark mode buttons */
-        body.dark-mode .nav-button {
-            color: white; /* Set buttons to white in dark mode */
-        }
-        /* Logo styling */
-        .logo {
-            width: 50px;
-            height: 50px;
-            margin-right: 20px; /* Push the logo to the left */
-            margin-left: 20px;
-        }
-
-        /* Different logo for dark mode */
-        body.dark-mode .logo {
-            content: url("assets/img/dalogo.png"); /* Change logo for dark mode */
-        }
-        /* Button styles */
-        .nav-button {
-            padding: 10px 15px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: transparent;
-            color: black;
-            font-weight: bold;
-            font-size: 1em;
-            margin-right: 50px;
-        }
-
-        .nav-button:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
-
-        /* Content sections */
-        .content-section {
-            display: none;
-        }
-
-        /* Show the current page */
-        .current-page {
-            display: block;
-        }
-        .gallery-content {
-            margin: 30px auto 0 auto; /* Adjust top margin for fixed navbar */
-            text-align: center;
-            display: flex; /* Use flexbox to align items horizontally */
-            flex-wrap: wrap; /* Allow items to wrap to the next line */
-            justify-content: center; /* Center items horizontally */
-            gap: 10px;
-        }
-
-        /* Gallery styles */
-        .gallery-images {
-            margin-right: 20px;
-        }
-
-        /* Image styling */
-        .gallery-image img {
-            width: 200px;
-            height: 200px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: opacity 0.3s ease;
-        }
-
-        .gallery-description {
-            text-align: center;
-            margin-top: 10px;
-            font-size: 0.9em;
-        }
-
-        .gallery-images img:hover {
-            opacity: 0.7;
-        }
-
-        /* Modal styling */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            padding-top: 60px;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0, 0, 0);
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .modal-content {
-            margin: auto;
-            display: block;
-            width: 80%;
-            max-width: 700px;
-        }
-
-        /* Close button */
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 35px;
-            color: #fff;
-            font-size: 40px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #999;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS file -->
 </head>
-
-<body id="home-page">
+<body id="home-page" class="dark-mode"> <!-- Set default mode to dark mode -->
     <!-- Dashboard with logo, navigation buttons, and dark mode toggle -->
     <div class="dashboard">
         <img src="assets/img/logo.png" alt="Logo" class="logo">
-
         <button class="nav-button" id="homeButton">Home</button>
         <button class="nav-button" id="galleryButton">Gallery</button>
-
         <!-- Toggle button to switch between light and dark mode -->
-        <button class="toggle-button" id="toggleButton" onclick="toggleMode()">🌙</button>
+        <button class="toggle-button" id="toggleButton">🔆</button>
     </div>
 
     <!-- Home content section -->
     <div id="homeContent" class="container content-section current-page">
         <!-- Profile image at the top of the container -->
         <img src="assets/img/image2.jpeg" alt="Profile Image" class="profile-image">
-
         <!-- Name section -->
-        <div class="name-section">
-            ABHISHEK DEVKOTA
-        </div>
-
+        <div class="name-section">ABHISHEK DEVKOTA</div>
         <!-- Description section -->
         <div class="description-section" id="description">
             <!-- This is where the typing animation text will appear -->
         </div>
-
         <!-- Social media links -->
         <a href="https://www.linkedin.com/in/abhishek-devkota/" target="_blank" class="linkedin-link">
             <i class="fab fa-linkedin"></i> LinkedIn
@@ -352,125 +49,12 @@
     </div>
 
     <!-- Gallery content section -->
-    <div id="galleryContent" class="gallery-content content-section">
-        <!-- Individual gallery images with descriptions -->
-        <div class="gallery-image">
-            <img src="assets/img/1.png" alt="Gallery Image 1" onclick="previewImage(this)">
-            <p class="gallery-description">Description for Image 1</p>
-        </div>
-        <div class="gallery-image">
-            <img src="assets/img/2.jpg" alt="Gallery Image 2" onclick="previewImage(this)">
-            <p class="gallery-description">Description for Image 2</p>
-        </div>
-        <div class="gallery-image">
-            <img src="assets/img/3.jpg" alt="Gallery Image 3" onclick="previewImage(this)">
-            <p class="gallery-description">Description for Image 3</p>
-        </div>
-        <div class="gallery-image">
-            <img src="assets/img/or.png" alt="Gallery Image 4" onclick="previewImage(this)">
-            <p class="gallery-description">Description for Image 4</p>
-        </div>
+    <div id="galleryContent" class="container content-section">
+        <p class="description">Gallery</p>
+        <div class="typing-animation">Coming soon...</div>
     </div>
 
-    <!-- Modal to preview images -->
-    <div id="imageModal" class="modal">
-        <span class="close" id="closeModal">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
-
-    <!-- JavaScript for toggle button, navigation, and image preview -->
-    <script>
-        // Typing animation function
-        function typeText(element, text, speed = 175) {
-            let i = 0;
-
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-
-            type();
-        }
-
-        // Initialize typing animation on page load
-        window.onload = function() {
-            const descriptionElement = document.getElementById('description');
-            const text = 'Yea, about that.'; // Initial text for the typing animation
-
-            // Call the typing function with the description element, text, and typing speed
-            typeText(descriptionElement, text, 175);
-        };
-
-        // Toggle dark mode
-        function toggleMode() {
-            const body = document.body;
-            const button = document.getElementById('toggleButton');
-            const descriptionElement = document.getElementById('description');
-
-            // Toggle dark mode class on body
-            body.classList.toggle('dark-mode');
-
-            // Update the button text based on the current mode
-            button.textContent = body.classList.contains('dark-mode') ? '🔆' : '🌙';
-
-            // Clear the current text content in the description section
-            descriptionElement.textContent = '';
-
-            // Restart the typing animation with the desired text
-            const text = 'Yea, about that.';
-            typeText(descriptionElement, text, 175);
-        }
-
-        // Navigation event handlers
-        // Hide gallery content when the page loads
-        window.onload = function() {
-            document.getElementById('galleryContent').style.display = 'none';
-        };
-
-        // Navigation event handlers
-        document.getElementById('homeButton').addEventListener('click', function() {
-            // Show Home content and hide Gallery content
-            document.getElementById('homeContent').classList.add('current-page');
-            document.getElementById('galleryContent').classList.remove('current-page');
-            document.getElementById('galleryContent').style.display = 'none'; // Hide gallery content when switching to home
-        });
-
-        document.getElementById('galleryButton').addEventListener('click', function() {
-            // Show Gallery content and hide Home content
-            document.getElementById('galleryContent').classList.add('current-page');
-            document.getElementById('homeContent').classList.remove('current-page');
-            document.getElementById('galleryContent').style.display = 'flex'; // Show gallery content when switching to gallery
-        });
-
-
-        // Image preview function
-        function previewImage(image) {
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-
-            // Set the src of the modal image to the clicked image's src
-            modalImage.src = image.src;
-
-            // Display the modal
-            modal.style.display = 'block';
-        }
-
-        // Close modal function
-        document.getElementById('closeModal').onclick = function() {
-            document.getElementById('imageModal').style.display = 'none';
-        }
-
-        // Close modal when clicking outside the modal content
-        window.onclick = function(event) {
-            const modal = document.getElementById('imageModal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        }
-    </script>
+    <!-- JavaScript -->
+    <script src="script.js"></script> <!-- External JavaScript file -->
 </body>
-
 </html>
