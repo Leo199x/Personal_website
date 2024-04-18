@@ -139,7 +139,7 @@
             cursor: pointer;
             background-color: #5f5b5bb2;
             color: white;
-            margin-left: 950px;
+            margin-left: 1050px;
         }
 
         /* Media queries for responsiveness */
@@ -217,6 +217,21 @@
             flex-wrap: wrap; /* Allow items to wrap to the next line */
             justify-content: center; /* Center items horizontally */
             gap: 10px;
+        }
+        /* Light mode background for gallery content */
+        body:not(.dark-mode) #galleryContent {
+            background-image: url("assets/img/3896707.jpg"); /* Replace with the URL of your light mode background image */
+            background-size: cover;
+            background-position: center;
+            color: black; /* Adjust text color for better visibility on the light background */
+        }
+
+        /* Dark mode background for gallery content */
+        body.dark-mode #galleryContent {
+            background-image: url("assets/img/dalogo.png"); /* Replace with the URL of your dark mode background image */
+            background-size: cover;
+            background-position: center;
+            color: white; /* Adjust text color for better visibility on the dark background */
         }
 
         /* Gallery styles */
