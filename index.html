@@ -156,9 +156,19 @@
         /* Background image for gallery page in light mode */
         body#gallery-page:not(.dark-mode) {
             background-image: url("assets/img/3896707.jpg");
-            background-attachment: fixed;
-            background-repeat: no-repeat;
+            background-size: cover;
             background-position: center center;
+            height: 100vh; /* Ensure body fills the entire viewport vertically */
+            margin: 0; /* Reset margin */
+        }
+
+        /* Background image for gallery page in dark mode */
+        body#gallery-page.dark-mode {
+            background-image: url("assets/img/hop.jpg");
+            background-size: cover;
+            background-position: center center;
+            height: 100vh; /* Ensure body fills the entire viewport vertically */
+            margin: 0; /* Reset margin */
         }
 
         /* Background image for home page in dark mode */
@@ -166,25 +176,7 @@
             background-image: url("assets/img/hop.jpg");
             background-size: cover;
             background-position: center;
-            height: auto;
         }
-
-        /* Background image for gallery page in dark mode */
-        /* Background image for gallery page in dark mode */
-        body#gallery-page.dark-mode {
-            background-image: url("assets/img/hop.jpg");
-            background-size: cover;
-            background-attachment: fixed; /* Optional: Fixed attachment for a parallax effect */
-            background-position: center center;
-            background-repeat: no-repeat; /* Ensure the background image is not repeated */
-            background-origin: initial; /* Reset the background-origin property */
-            background-clip: initial; /* Reset the background-clip property */
-            margin: 0; /* Reset margin to ensure the body fills the viewport */
-            padding: 0; /* Reset padding */
-            height: 100vh; /* Ensure the body fills the entire viewport vertically */
-            width: 100vw; /* Ensure the body fills the entire viewport horizontally */
-        }
-
 
         /* Dashboard styles */
         .dashboard {
