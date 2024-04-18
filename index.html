@@ -165,28 +165,27 @@
         }
 
         /* Dashboard styles */
-        /* Dashboard styles */
-        .dashboard {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end; /* This moves the buttons to the right */
-            padding: 10px;
-            background-color: transparent; /* Make the background transparent */
-            height: 40px;
-        }
+    /* Dashboard styles */
+    .dashboard {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* This moves the buttons to the right */
+        padding: 10px;
+        background-color: transparent; /* Make the background transparent */
+        height: 40px;
+    }
 
+    body.dark-mode .dashboard {
+        background-color: rgba(0, 0, 0, 0.5); /* Optional: slightly darken the dashboard in dark mode */
+    }
 
-        body.dark-mode .dashboard {
-            background-color: rgba(0, 0, 0, 0.5); /* Optional: slightly darken the dashboard in dark mode */
-        }
-
-        /* Logo styling */
-        .logo {
-            width: 50px;
-            height: 50px;
-            margin-right: 20px; /* Push the logo to the left */
-            margin-left: 20px;
-        }
+    /* Logo styling */
+    .logo {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px; /* Push the logo to the left */
+        margin-left: 20px;
+    }
 
 
         /* Adjustments for dark mode buttons */
@@ -217,7 +216,7 @@
             color: black;
             font-weight: bold;
             font-size: 1em;
-            margin-right: 550px;
+            margin-right: 50px;
         }
 
         .nav-button:hover {
@@ -419,8 +418,9 @@
 
     // Initialize typing animations on page load
     window.onload = function() {
-        showHome();
         initializeTypingAnimations(); // Initialize typing animations on page load
+        document.getElementById('galleryContent').style.display = 'none';
+
     };
 
         document.getElementById('galleryButton').addEventListener('click', function() {
