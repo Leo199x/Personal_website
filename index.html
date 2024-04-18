@@ -421,13 +421,6 @@
         document.getElementById('galleryContent').style.display = 'none';
         initializeTypingAnimations(); // Initialize typing animations on page load
     };
-            // Navigation event handlers
-    document.getElementById('homeButton').addEventListener('click', function() {
-            // Show Home content and hide Gallery content
-            document.getElementById('homeContent').classList.add('current-page');
-            document.getElementById('galleryContent').classList.remove('current-page');
-            document.getElementById('galleryContent').style.display = 'none'; // Hide gallery content when switching to home
-        });
 
         document.getElementById('galleryButton').addEventListener('click', function() {
             // Show Gallery content and hide Home content
