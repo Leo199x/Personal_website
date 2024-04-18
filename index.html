@@ -302,14 +302,14 @@
     </style>
 </head>
 
-<body>
-    <!-- Container for the "Coming soon..." description -->
+<body id="gallery-page"> <!-- Change the body ID to gallery-page -->
+
+    <!-- Container for the "Coming soon..." description on the gallery page -->
     <div class="container">
         <p class="description">Gallery</p>
         <div class="typing-animation">Coming soon...</div>
     </div>
 
-<body id="home-page">
     <!-- Dashboard with logo, navigation buttons, and dark mode toggle -->
     <div class="dashboard">
         <img src="assets/img/logo.png" alt="Logo" class="logo">
@@ -400,12 +400,6 @@
         }
 
         // Navigation event handlers
-        // Hide gallery content when the page loads
-        window.onload = function() {
-            document.getElementById('galleryContent').style.display = 'none';
-        };
-
-        // Navigation event handlers
         document.getElementById('homeButton').addEventListener('click', function() {
             // Show Home content and hide Gallery content
             document.getElementById('homeContent').classList.add('current-page');
@@ -419,9 +413,6 @@
             document.getElementById('homeContent').classList.remove('current-page');
             document.getElementById('galleryContent').style.display = 'flex'; // Show gallery content when switching to gallery
         });
-
-
-
     </script>
 </body>
 
