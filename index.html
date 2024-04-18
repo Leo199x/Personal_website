@@ -173,7 +173,7 @@
 
         /* Background image for gallery page in light mode */
         body#gallery-page:not(.dark-mode) {
-            background-image: url("assets/img/fib_w.jpeg");
+            background-image: url("assets/img/fib_w.jpg");
             background-size: cover;
             background-position: center center;
             height: 100vh; /* Ensure body fills the entire viewport vertically */
@@ -182,7 +182,7 @@
 
         /* Background image for gallery page in dark mode */
         body#gallery-page.dark-mode {
-            background-image: url("assets/img/fib.jpeg");
+            background-image: url("assets/img/fib.jpg");
             background-size: cover;
             background-position: center center;
             height: 100vh; /* Ensure body fills the entire viewport vertically */
@@ -302,14 +302,14 @@
     </style>
 </head>
 
-<body id="gallery-page"> <!-- Change the body ID to gallery-page -->
-
-    <!-- Container for the "Coming soon..." description on the gallery page -->
+<body id="gallery-content">
+    <!-- Container for the "Coming soon..." description -->
     <div class="container">
         <p class="description">Gallery</p>
         <div class="typing-animation">Coming soon...</div>
     </div>
 
+<body id="home-page">
     <!-- Dashboard with logo, navigation buttons, and dark mode toggle -->
     <div class="dashboard">
         <img src="assets/img/logo.png" alt="Logo" class="logo">
@@ -400,6 +400,12 @@
         }
 
         // Navigation event handlers
+        // Hide gallery content when the page loads
+        window.onload = function() {
+            document.getElementById('galleryContent').style.display = 'none';
+        };
+
+        // Navigation event handlers
         document.getElementById('homeButton').addEventListener('click', function() {
             // Show Home content and hide Gallery content
             document.getElementById('homeContent').classList.add('current-page');
@@ -413,6 +419,9 @@
             document.getElementById('homeContent').classList.remove('current-page');
             document.getElementById('galleryContent').style.display = 'flex'; // Show gallery content when switching to gallery
         });
+
+
+
     </script>
 </body>
 
