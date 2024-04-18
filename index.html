@@ -251,7 +251,7 @@
         }
 
         body.dark-mode .gallery-content {
-            background-image: url("assets/img/dalogo.png");
+            background-image: url("assets/img/hop.jpg");
         }
 
         /* Modal styling */
@@ -292,6 +292,64 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            /* Reduce dashboard padding and adjust alignment */
+            .dashboard {
+                justify-content: center; /* Center align the dashboard */
+                padding: 5px;
+            }
+
+            /* Adjust logo size */
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            /* Adjust button size */
+            .nav-button {
+                margin-right: 20px;
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+
+            /* Adjust toggle button position */
+            .toggle-button {
+                margin-left: auto;
+            }
+
+            /* Reduce container width */
+            .container {
+                width: 90%;
+            }
+
+            /* Adjust profile image size */
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            /* Adjust font size */
+            .name-section {
+                font-size: 1.2em;
+            }
+
+            .description-section {
+                font-size: 0.9em;
+            }
+
+            /* Reduce padding in links */
+            a {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* For very small screens, further adjustments can be made here */
+            /* You can adjust the styles for specific components here */
+        }
+
     </style>
 </head>
 
