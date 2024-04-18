@@ -119,10 +119,7 @@
         }
 
         /* Styles for dark mode */
-        body.dark-mode #homePage{
-            background-image: url("assets/img/hop.jpg");
-            background-size: cover;
-            background-position: center;
+        body.dark-mode {
             color: white;
         }
 
@@ -139,7 +136,7 @@
             cursor: pointer;
             background-color: #5f5b5bb2;
             color: white;
-            margin-left: 1050px;
+            margin-left: 950px;
         }
 
         /* Media queries for responsiveness */
@@ -149,9 +146,30 @@
             }
         }
 
-        /* Background image for light mode */
-        body:not(.dark-mode) #homeContent {
-            background-image: url("assets/img/3896707.jpg");
+        /* Background image for home page in light mode */
+        body#home-page:not(.dark-mode) {
+            background-image: url("assets/img/home-background.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Background image for gallery page in light mode */
+        body#gallery-page:not(.dark-mode) {
+            background-image: url("assets/img/gallery-background.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Background image for home page in dark mode */
+        body#home-page.dark-mode {
+            background-image: url("assets/img/home-background-dark.jpg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Background image for gallery page in dark mode */
+        body#gallery-page.dark-mode {
+            background-image: url("assets/img/gallery-background-dark.jpg");
             background-size: cover;
             background-position: center;
         }
@@ -217,21 +235,6 @@
             flex-wrap: wrap; /* Allow items to wrap to the next line */
             justify-content: center; /* Center items horizontally */
             gap: 10px;
-        }
-        /* Light mode background for gallery content */
-        body:not(.dark-mode) #galleryPage {
-            background-image: url("assets/img/3896707.jpg"); /* Replace with the URL of your light mode background image */
-            background-size: cover;
-            background-position: center;
-            color: black; /* Adjust text color for better visibility on the light background */
-        }
-
-        /* Dark mode background for gallery content */
-        body.dark-mode #galleryPage {
-            background-image: url("assets/img/hop.png"); /* Replace with the URL of your dark mode background image */
-            background-size: cover;
-            background-position: center;
-            color: white; /* Adjust text color for better visibility on the dark background */
         }
 
         /* Gallery styles */
@@ -300,7 +303,7 @@
     </style>
 </head>
 
-<body>
+<body id="home-page">
     <!-- Dashboard with logo, navigation buttons, and dark mode toggle -->
     <div class="dashboard">
         <img src="assets/img/logo.png" alt="Logo" class="logo">
