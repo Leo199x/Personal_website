@@ -338,56 +338,77 @@
 
     <!-- JavaScript for toggle button, navigation, and typing animation -->
     <script>
-        // Typing animation function
-        function typeText(element, text, speed = 175) {
-            let i = 0;
+    // Typing animation function
+    function typeText(element, text, speed = 100) {
+        element.textContent = ''; // Clear any existing text
+        let i = 0;
 
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
+        function type() {
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(type, speed);
             }
-
-            type();
         }
 
-        // Initialize typing animation on page load
-        window.onload = function() {
-            // Set home content as default and gallery content as hidden initially
-            document.getElementById('homeContent').style.display = 'block';
-            document.getElementById('galleryContent').style.display = 'none';
+        // Start typing
+        type();
+    }
 
-            // Typing animation for the description on the home page
-            const descriptionElement = document.getElementById('description');
-            const homeText = 'Yea, about that.';
-            typeText(descriptionElement, homeText, 175);
+    // Function to initialize typing animations
+    function initializeTypingAnimations() {
+        const descriptionElement = document.getElementById('description');
+        const homeText = 'Yea, about that.';
+        typeText(descriptionElement, homeText, 100);
 
-            // Typing animation for the coming soon description in the gallery page
-            const galleryDescriptionElement = document.getElementById('galleryDescription');
-            const galleryText = 'Coming soon...';
-            typeText(galleryDescriptionElement, galleryText, 175);
-        };
+        const galleryDescriptionElement = document.getElementById('galleryDescription');
+        const galleryText = 'Coming soon...';
+        typeText(galleryDescriptionElement, galleryText, 100);
+    }
 
-        // Toggle dark mode
-        function toggleMode() {
-            const body = document.body;
-            const button = document.getElementById('toggleButton');
+    // Function to switch to home page
+    function showHome() {
+        // Hide gallery content and show home content
+        document.getElementById('galleryContent').style.display = 'none';
+        document.getElementById('homeContent').style.display = 'block';
 
-            // Toggle dark mode class on body
-            body.classList.toggle('dark-mode');
+        // Initialize typing animations for home page
+        initializeTypingAnimations();
+    }
 
-            // Update the button text based on the current mode
-            button.textContent = body.classList.contains('dark-mode') ? '🔆' : '🌙';
-        }
+    // Function to switch to gallery page
+    function showGallery() {
+        // Hide home content and show gallery content
+        document.getElementById('homeContent').style.display = 'none';
+        document.getElementById('galleryContent').style.display = 'block';
 
-        // Navigation event handlers
-        document.getElementById('homeButton').addEventListener('click', function() {
-            // Show Home content and hide Gallery content
-            document.getElementById('homeContent').style.display = 'block';
-            document.getElementById('galleryContent').style.display = 'none';
-        });
+        // Initialize typing animations for gallery page
+        initializeTypingAnimations();
+    }
+
+    // Toggle dark mode
+    function toggleMode() {
+        const body = document.body;
+        const button = document.getElementById('toggleButton');
+
+        // Toggle dark mode class on body
+        body.classList.toggle('dark-mode');
+
+        // Update the button text based on the current mode
+        button.textContent = body.classList.contains('dark-mode') ? '🔆' : '🌙';
+
+        // Reinitialize typing animations when mode changes
+        initializeTypingAnimations();
+    }
+
+    // Navigation event handlers
+    document.getElementById('homeButton').addEventListener('click', showHome);
+    document.getElementById('galleryButton').addEventListener('click', showGallery);
+
+    // Initialize typing animations on page load
+    window.onload = function() {
+        initializeTypingAnimations(); // Initialize typing animations on page load
+    };
 
         document.getElementById('galleryButton').addEventListener('click', function() {
             // Show Gallery content and hide Home content
