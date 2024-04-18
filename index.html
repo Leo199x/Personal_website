@@ -34,7 +34,6 @@
             margin: 0; /* Reset margin */
         }
 
-
         /* Styling for the container */
         .container {
             padding: 20px;
@@ -44,9 +43,7 @@
             max-width: 500px; /* Maximum width for responsiveness */
             text-align: center;
             box-shadow: 0 4px 8px rgb(247, 245, 245);
-            /* Remove the border/outline */
-            border: none;
-            /* Position relative for the pseudo-element */
+            border: none; /* Position relative for the pseudo-element */
             position: relative;
         }
 
@@ -302,14 +299,7 @@
     </style>
 </head>
 
-<body id="gallery-content">
-    <!-- Container for the "Coming soon..." description -->
-    <div class="container">
-        <p class="description">Gallery</p>
-        <div class="typing-animation">Coming soon...</div>
-    </div>
-
-<body id="home-page">
+<body id="gallery-page">
     <!-- Dashboard with logo, navigation buttons, and dark mode toggle -->
     <div class="dashboard">
         <img src="assets/img/logo.png" alt="Logo" class="logo">
@@ -321,8 +311,15 @@
         <button class="toggle-button" id="toggleButton" onclick="toggleMode()">🌙</button>
     </div>
 
+    <!-- Gallery content section -->
+    <div id="galleryContent" class="container content-section current-page">
+        <!-- Coming soon description -->
+        <p class="description">Gallery</p>
+        <div class="typing-animation">Coming soon...</div>
+    </div>
+
     <!-- Home content section -->
-    <div id="homeContent" class="container content-section current-page">
+    <div id="homeContent" class="container content-section">
         <!-- Profile image at the top of the container -->
         <img src="assets/img/image2.jpeg" alt="Profile Image" class="profile-image">
 
@@ -372,11 +369,15 @@
 
         // Initialize typing animation on page load
         window.onload = function() {
+            // Initialize typing animation for the home page
             const descriptionElement = document.getElementById('description');
             const text = 'Yea, about that.'; // Initial text for the typing animation
 
             // Call the typing function with the description element, text, and typing speed
             typeText(descriptionElement, text, 175);
+
+            // Hide the gallery content initially
+            document.getElementById('galleryContent').style.display = 'none';
         };
 
         // Toggle dark mode
@@ -400,12 +401,6 @@
         }
 
         // Navigation event handlers
-        // Hide gallery content when the page loads
-        window.onload = function() {
-            document.getElementById('galleryContent').style.display = 'none';
-        };
-
-        // Navigation event handlers
         document.getElementById('homeButton').addEventListener('click', function() {
             // Show Home content and hide Gallery content
             document.getElementById('homeContent').classList.add('current-page');
@@ -417,10 +412,8 @@
             // Show Gallery content and hide Home content
             document.getElementById('galleryContent').classList.add('current-page');
             document.getElementById('homeContent').classList.remove('current-page');
-            document.getElementById('galleryContent').style.display = 'flex'; // Show gallery content when switching to gallery
+            document.getElementById('galleryContent').style.display = 'block'; // Show gallery content when switching to gallery
         });
-
-
 
     </script>
 </body>
