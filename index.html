@@ -216,8 +216,7 @@
             color: black;
             font-weight: bold;
             font-size: 1em;
-            margin-right: 50px;
-            margin-left: auto;
+            margin-right: 550px;
         }
 
         .nav-button:hover {
@@ -248,7 +247,7 @@
 
         /* Different background images for gallery in light and dark mode */
         body:not(.dark-mode) .gallery-content {
-            background-image: url("assets/img/3896707.jpg");
+            background-image: url("assets/img/fib_w.jpeg");
         }
 
         body.dark-mode .gallery-content {
@@ -419,8 +418,16 @@
 
     // Initialize typing animations on page load
     window.onload = function() {
+        document.getElementById('galleryContent').style.display = 'none';
         initializeTypingAnimations(); // Initialize typing animations on page load
     };
+            // Navigation event handlers
+    document.getElementById('homeButton').addEventListener('click', function() {
+            // Show Home content and hide Gallery content
+            document.getElementById('homeContent').classList.add('current-page');
+            document.getElementById('galleryContent').classList.remove('current-page');
+            document.getElementById('galleryContent').style.display = 'none'; // Hide gallery content when switching to home
+        });
 
         document.getElementById('galleryButton').addEventListener('click', function() {
             // Show Gallery content and hide Home content
