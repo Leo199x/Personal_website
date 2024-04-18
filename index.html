@@ -136,7 +136,7 @@
             cursor: pointer;
             background-color: #5f5b5bb2;
             color: white;
-            margin-right: 50px;
+            margin-left: 1050px;
         }
 
         /* Media queries for responsiveness */
@@ -156,8 +156,8 @@
         /* Background image for gallery page in light mode */
         body#gallery-page:not(.dark-mode) {
             background-image: url("assets/img/3896707.jpg");
-            background-size: cover;
-            background-position: center;
+            background-attachment: fixed;
+            background-position: center center;
         }
 
         /* Background image for home page in dark mode */
@@ -171,7 +171,8 @@
         body#gallery-page.dark-mode {
             background-image: url("assets/img/hop.jpg");
             background-size: cover;
-            background-position: center;
+            background-attachment: fixed;
+            background-position: center center;
         }
 
         /* Dashboard styles */
