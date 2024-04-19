@@ -107,14 +107,6 @@
             transform: translate(-50%, -50%);
         }
 
-        .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            color: white;
-            cursor: pointer;
-        }
-
         /* Styling for the name section */
         .name-section {
             font-size: 1.5em;
@@ -216,18 +208,9 @@
             margin-left: 20px;
         }
 
-
         /* Adjustments for dark mode buttons */
         body.dark-mode .nav-button {
             color: white; /* Set buttons to white in dark mode */
-        }
-
-        /* Logo styling */
-        .logo {
-            width: 50px;
-            height: 50px;
-            margin-right: 20px; /* Push the logo to the left */
-            margin-left: 20px;
         }
 
         /* Different logo for dark mode */
@@ -399,9 +382,8 @@
         <!-- Profile image at the top of the container -->
         <img src="assets/img/image2.jpeg" alt="Profile Image" class="profile-image" onclick="toggleProfilePreview('profileImage')">
         <!-- Profile image preview -->
-        <div id="profileImagePreview" class="profile-preview" onclick="toggleProfilePreview('profileImage')">
-            <img src="assets/img/image2.jpeg" alt="Profile Image Preview" class="preview-image">
-            <span class="close-button" onclick="toggleProfilePreview('profileImage')">&times;</span>
+        <div id="profileImagePreview" class="profile-preview">
+            <img src="assets/img/image2.jpeg" alt="Profile Image Preview" class="preview-image" onclick="toggleProfilePreview('profileImage')">
         </div>
 
         <!-- Name section -->
@@ -526,14 +508,15 @@
             const profilePreview = document.getElementById(elementId + 'Preview');
             profilePreview.style.display = (profilePreview.style.display === 'none' || profilePreview.style.display === '') ? 'block' : 'none';
         }
-
-        // Close profile image preview when clicking outside the image
+        
         window.addEventListener('click', function (event) {
             const profilePreview = document.getElementById('profileImagePreview');
             if (event.target !== profilePreview && !profilePreview.contains(event.target)) {
                 profilePreview.style.display = 'none';
             }
         });
+
+        
     </script>
 </body>
 
