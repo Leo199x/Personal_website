@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LÈO</title>
     <!-- Font Awesome CDN -->
@@ -14,66 +15,123 @@
         /* Apply the custom font to the body */
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0; /* Reset margin */
         }
 
-        /* Background images */
+        /* Background image for home page in light mode */
         body:not(.dark-mode) {
             background-image: url("assets/img/3896707.jpg");
             background-size: cover;
             background-position: center;
-            min-height: 100vh;
+            height: 100vh; /* Ensure body fills the entire viewport vertically */
+            margin: 0; /* Reset margin */
         }
 
+        /* Background image for home page in dark mode */
         body.dark-mode {
             background-image: url("assets/img/hop.jpg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Ensure body fills the entire viewport vertically */
+            margin: 0; /* Reset margin */
         }
 
-        /* Container */
+        /* Styling for the container */
         .container {
             padding: 20px;
-            border-radius: 10px;
-            max-width: 500px;
             margin: 0 auto;
+            border-radius: 10px;
+            width: 60%; /* Adjust width for a larger container */
+            max-width: 500px; /* Maximum width for responsiveness */
             text-align: center;
             box-shadow: 0 4px 8px rgb(247, 245, 245);
+            /* Remove the border/outline */
+            border: none;
+            /* Position relative for the pseudo-element */
             position: relative;
         }
 
-        /* Profile image */
-        .profile-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            cursor: pointer;
+        /* Pseudo-element for blurred effect behind the box in light mode */
+        body:not(.dark-mode) .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Background for the blur effect in light mode */
+            background-color: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            z-index: -1; /* Place behind the content */
         }
 
-        /* Name section */
+        /* Pseudo-element for blurred effect behind the box in dark mode */
+        body.dark-mode .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Background for the blur effect in dark mode */
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            z-index: -1; /* Place behind the content */
+        }
+
+        /* Styling for the profile image */
+        .profile-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            cursor: pointer; /* Add cursor pointer */
+        }
+
+        .profile-preview {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+
+        .preview-image {
+            max-width: 80%;
+            max-height: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Styling for the name section */
         .name-section {
             font-size: 1.5em;
             margin-bottom: 10px;
             font-weight: bold;
         }
 
-        /* Description section */
+        /* Styling for the description section */
         .description-section {
             margin-bottom: 20px;
             font-size: 1em;
         }
 
-        /* Social media links */
+        /* Styling for the social media links */
         a {
             text-decoration: none;
             color: black;
             display: block;
-            padding: 15px;
+            padding: 20px; /* Increase padding for larger rectangles */
             margin-bottom: 10px;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
 
-        /* Social media link colors */
+        /* Styling for social media links with different colors */
         .github-link {
             background-color: #333;
             color: white;
@@ -99,16 +157,21 @@
             opacity: 0.8;
         }
 
-        /* Dark mode styles */
+        /* Styles for dark mode */
         body.dark-mode {
             color: white;
         }
 
+        /* Adjustments for dark mode links */
         body.dark-mode a {
             color: white;
         }
+        /* Adjust home button */
+        #homeButton {
+            margin-left: 1150px !important;; /* Add margin to move the button further to the right */
+        }
 
-        /* Toggle button */
+        /* Styles for the toggle button */
         .toggle-button {
             padding: 12px;
             border: none;
@@ -116,34 +179,50 @@
             cursor: pointer;
             background-color: transparent;
             color: white;
-            font-size: 1.2em;
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            margin-left: 10px; /* Push the toggle button to the right */
+            font-size: 1.2em
+        }
+      
+        /* Media queries for responsiveness */
+        @media (max-width: 480px) {
+            .container {
+                width: 90%; /* Adjust width for mobile devices */
+            }
         }
 
-        /* Dashboard */
+        /* Dashboard styles */
         .dashboard {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* This moves the buttons to the right */
             padding: 10px;
-            background-color: transparent;
+            background-color: transparent; /* Make the background transparent */
             height: 40px;
-            position: relative;
         }
 
         body.dark-mode .dashboard {
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(0, 0, 0, 0.5); /* Optional: slightly darken the dashboard in dark mode */
         }
 
+        /* Logo styling */
         .logo {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
+            margin-right: 20px; /* Push the logo to the left */
             margin-left: 20px;
         }
 
+        /* Adjustments for dark mode buttons */
         body.dark-mode .nav-button {
-            color: white;
+            color: white; /* Set buttons to white in dark mode */
         }
 
+        /* Different logo for dark mode */
+        body.dark-mode .logo {
+            content: url("assets/img/dalogo.png"); /* Change logo for dark mode */
+        }
+
+        /* Button styles */
         .nav-button {
             padding: 10px 15px;
             cursor: pointer;
@@ -175,12 +254,15 @@
         .gallery-content {
             background-position: center;
             background-size: cover;
-            min-height: 100vh;
+            height: 100vh;
+            width: 100%;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
+        /* Different background images for gallery in light and dark mode */
         body:not(.dark-mode) .gallery-content {
             background-image: url("assets/img/3896707.jpg");
         }
@@ -200,6 +282,7 @@
             width: 100%;
             height: 100%;
             overflow: auto;
+            background-color: rgb(0, 0, 0);
             background-color: rgba(0, 0, 0, 0.4);
         }
 
@@ -227,6 +310,57 @@
             cursor: pointer;
         }
 
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            /* Reduce dashboard padding and adjust alignment */
+            .dashboard {
+                justify-content: center; /* Center align the dashboard */
+                padding: 5px;
+            }
+
+            /* Adjust logo size */
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            /* Adjust button size */
+            .nav-button {
+                margin-right: 20px;
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+
+            /* Adjust toggle button position */
+            .toggle-button {
+                margin-left: auto;
+            }
+
+            /* Reduce container width */
+            .container {
+                width: 90%;
+            }
+
+            /* Adjust profile image size */
+            .profile-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            /* Adjust font size */
+            .name-section {
+                font-size: 1.2em;
+            }
+
+            .description-section {
+                font-size: 0.9em;
+            }
+
+            /* Reduce padding in links */
+            a {
+                padding: 10px;
+            }
+        }
         /* Media queries for responsiveness */
         @media (max-width: 768px) {
             .container {
@@ -265,39 +399,53 @@
                 padding: 8px;
             }
         }
+
     </style>
 </head>
 
 <body>
-    <!-- Dashboard -->
+    <!-- Dashboard with logo, navigation buttons, and dark mode toggle -->
     <div class="dashboard">
         <img src="assets/img/logo.png" alt="Logo" class="logo">
+
         <button class="nav-button" id="homeButton">Home</button>
         <button class="nav-button" id="galleryButton">Gallery</button>
+
+        <!-- Toggle button to switch between light and dark mode -->
         <button class="toggle-button" id="toggleButton" onclick="toggleMode()">🌒</button>
     </div>
 
     <!-- Home content section -->
     <div id="homeContent" class="container content-section current-page">
+        <!-- Profile image at the top of the container -->
         <img src="assets/img/image2.jpeg" alt="Profile Image" class="profile-image" onclick="toggleProfilePreview('profileImage')">
+        <!-- Profile image preview -->
         <div id="profileImagePreview" class="profile-preview">
             <img src="assets/img/image2.jpeg" alt="Profile Image Preview" class="preview-image" onclick="toggleProfilePreview('profileImage')">
         </div>
+
+        <!-- Name section -->
         <div class="name-section">
             ABHISHEK DEVKOTA
         </div>
+
+        <!-- Description section -->
         <div class="description-section" id="description">
             <!-- This is where the typing animation text will appear -->
         </div>
+
+        <!-- Social media links -->
         <a href="https://www.linkedin.com/in/abhishek-devkota/" target="_blank" class="linkedin-link">
             <i class="fab fa-linkedin"></i> LinkedIn
         </a>
         <a href="https://github.com/Leo199x/" target="_blank" class="github-link">
             <i class="fab fa-github"></i> GitHub
         </a>
+        <!-- Email link -->
         <a href="mailto:abhi199x@gmail.com" class="email-link">
             <i class="fas fa-envelope"></i> Email
         </a>
+        <!-- CV download link -->
         <a href="assets/img/Abhishek_Devkota_CV.pdf" download class="cv-link">
             <i class="fas fa-file-download"></i> CV
         </a>
@@ -311,7 +459,7 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
+    <!-- JavaScript for toggle button, navigation, and typing animation -->
     <script>
         // Typing animation function
         function typeText(element, text, speed = 100) {
@@ -384,8 +532,16 @@
         window.onload = function () {
             initializeTypingAnimations(); // Initialize typing animations on page load
             document.getElementById('galleryContent').style.display = 'none';
+
         };
 
+        document.getElementById('galleryButton').addEventListener('click', function () {
+            // Show Gallery content and hide Home content
+            document.getElementById('galleryContent').style.display = 'block';
+            document.getElementById('homeContent').style.display = 'none';
+        });
+
+        // Function to toggle profile image preview
         // Function to toggle profile image preview
         function toggleProfilePreview(elementId) {
             const profilePreview = document.getElementById(elementId + 'Preview');
