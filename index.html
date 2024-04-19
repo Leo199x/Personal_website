@@ -84,6 +84,7 @@
             height: 300px;
             border-radius: 50%;
             margin-bottom: 20px;
+            cursor: pointer; /* Indicates the image is clickable */
         }
 
         /* Styling for the name section */
@@ -165,32 +166,17 @@
         }
 
         /* Dashboard styles */
-    /* Dashboard styles */
-    .dashboard {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end; /* This moves the buttons to the right */
-        padding: 10px;
-        background-color: transparent; /* Make the background transparent */
-        height: 40px;
-    }
+        .dashboard {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* This moves the buttons to the right */
+            padding: 10px;
+            background-color: transparent; /* Make the background transparent */
+            height: 40px;
+        }
 
-    body.dark-mode .dashboard {
-        background-color: rgba(0, 0, 0, 0.5); /* Optional: slightly darken the dashboard in dark mode */
-    }
-
-    /* Logo styling */
-    .logo {
-        width: 50px;
-        height: 50px;
-        margin-right: 20px; /* Push the logo to the left */
-        margin-left: 20px;
-    }
-
-
-        /* Adjustments for dark mode buttons */
-        body.dark-mode .nav-button {
-            color: white; /* Set buttons to white in dark mode */
+        body.dark-mode .dashboard {
+            background-color: rgba(0, 0, 0, 0.5); /* Optional: slightly darken the dashboard in dark mode */
         }
 
         /* Logo styling */
@@ -216,7 +202,7 @@
             color: black;
             font-weight: bold;
             font-size: 1em;
-            margin-right: 50px;
+            margin-left: 850px;
         }
 
         .nav-button:hover {
@@ -256,7 +242,7 @@
 
         /* Modal styling */
         .modal {
-            display: none;
+            display: none; /* Initially hidden */
             position: fixed;
             z-index: 1;
             padding-top: 60px;
@@ -265,7 +251,6 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgb(0, 0, 0);
             background-color: rgba(0, 0, 0, 0.4);
         }
 
@@ -284,13 +269,13 @@
             color: #fff;
             font-size: 40px;
             font-weight: bold;
+            cursor: pointer;
         }
 
         .close:hover,
         .close:focus {
             color: #999;
             text-decoration: none;
-            cursor: pointer;
         }
 
         /* Media queries for responsiveness */
@@ -339,153 +324,180 @@
                 font-size: 0.9em;
             }
 
-            /* Reduce padding in links */
+            /* Adjust social media link padding */
             a {
-                padding: 10px;
+                padding: 10px; /* Reduce padding for smaller screens */
             }
         }
-
-        @media (max-width: 480px) {
-            /* For very small screens, further adjustments can be made here */
-            /* You can adjust the styles for specific components here */
-        }
-
     </style>
 </head>
 
 <body>
-    <!-- Dashboard with logo, navigation buttons, and dark mode toggle -->
     <div class="dashboard">
-        <img src="assets/img/logo.png" alt="Logo" class="logo">
+        <!-- Logo -->
+        <img class="logo" src="assets/img/your_logo.png" alt="Logo">
 
-        <button class="nav-button" id="homeButton">Home</button>
-        <button class="nav-button" id="galleryButton">Gallery</button>
+        <!-- Navigation buttons -->
+        <button class="nav-button" onclick="showHome()">Home</button>
+        <button class="nav-button" onclick="showAbout()">About</button>
+        <button class="nav-button" onclick="showGallery()">Gallery</button>
+        <button class="nav-button" onclick="showContact()">Contact</button>
 
-        <!-- Toggle button to switch between light and dark mode -->
-        <button class="toggle-button" id="toggleButton" onclick="toggleMode()">🌙</button>
+        <!-- Toggle button -->
+        <button class="toggle-button" onclick="toggleMode()">Toggle Mode</button>
     </div>
 
-    <!-- Home content section -->
-    <div id="homeContent" class="container content-section current-page">
-        <!-- Profile image at the top of the container -->
-        <img src="assets/img/image2.jpeg" alt="Profile Image" class="profile-image">
-
-        <!-- Name section -->
-        <div class="name-section">
-            ABHISHEK DEVKOTA
-        </div>
-
-        <!-- Description section -->
-        <div class="description-section" id="description">
-            <!-- This is where the typing animation text will appear -->
-        </div>
-
-        <!-- Social media links -->
-        <a href="https://www.linkedin.com/in/abhishek-devkota/" target="_blank" class="linkedin-link">
-            <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-        <a href="https://github.com/Leo199x/" target="_blank" class="github-link">
-            <i class="fab fa-github"></i> GitHub
-        </a>
-        <!-- Email link -->
-        <a href="mailto:abhi199x@gmail.com" class="email-link">
-            <i class="fas fa-envelope"></i> Email
-        </a>
-        <!-- CV download link -->
-        <a href="assets/img/Abhishek_Devkota_CV.pdf" download class="cv-link">
-            <i class="fas fa-file-download"></i> CV
-        </a>
-    </div>
-
-    <!-- Gallery content section -->
-    <div id="galleryContent" class="gallery-content content-section">
+    <!-- Home Section -->
+    <div id="home-content" class="content-section current-page">
         <div class="container">
-            <p class="description">Gallery</p>
-            <div id="galleryDescription"></div>
+            <img src="assets/img/leo.jpg" alt="Profile Image" class="profile-image" id="profileImage">
+            <div class="name-section">LÈO</div>
+            <div class="description-section">
+                I am a full-stack web developer with a passion for building beautiful and functional websites. Let's connect!
+            </div>
+            <a href="https://github.com/your-profile" class="github-link">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/your-profile/" class="linkedin-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="mailto:your.email@example.com" class="email-link">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="path/to/your/cv.pdf" class="cv-link" download>
+                <i class="fas fa-file-download"></i> Download CV
+            </a>
         </div>
     </div>
 
-    <!-- JavaScript for toggle button, navigation, and typing animation -->
-    <script>
-    // Typing animation function
-    function typeText(element, text, speed = 100) {
-        element.textContent = ''; // Clear any existing text
-        let i = 0;
+    <!-- About Section -->
+    <div id="about-content" class="content-section">
+        <div class="container">
+            <div class="name-section">About Me</div>
+            <div class="description-section">
+                <p>Welcome to my portfolio website! I am a passionate web developer specializing in both front-end and back-end development. My goal is to create seamless and user-friendly web experiences that leave a lasting impact.</p>
+                <p>With years of experience in the industry, I have honed my skills in various programming languages and frameworks. I am always eager to take on new challenges and collaborate with talented individuals to deliver exceptional results.</p>
+                <p>Feel free to explore my projects, and don't hesitate to reach out if you have any questions or opportunities in mind!</p>
+            </div>
+        </div>
+    </div>
 
-        function type() {
-            if (i < text.length) {
-                element.textContent += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
+    <!-- Gallery Section -->
+    <div id="gallery-content" class="content-section gallery-content">
+        <div class="container">
+            <div class="name-section">Gallery</div>
+            <div class="description-section">
+                <p>Welcome to my gallery! Here you can find a collection of my favorite projects, designs, and experiences. Browse through to discover some of my work:</p>
+                <div class="gallery-images">
+                    <img src="path/to/image1.jpg" alt="Gallery Image 1">
+                    <img src="path/to/image2.jpg" alt="Gallery Image 2">
+                    <img src="path/to/image3.jpg" alt="Gallery Image 3">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact-content" class="content-section">
+        <div class="container">
+            <div class="name-section">Contact Me</div>
+            <div class="description-section">
+                <p>I'm always happy to hear from you! Feel free to reach out to me via any of the platforms listed below:</p>
+                <ul>
+                    <li>Email: your.email@example.com</li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/your-profile/">your-profile</a></li>
+                    <li>GitHub: <a href="https://github.com/your-profile">your-profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for profile image preview -->
+    <div id="profileImageModal" class="modal">
+        <span class="close" id="closeModalButton">&times;</span>
+        <img id="modalContent" class="modal-content">
+    </div>
+
+    <script>
+        // Function to toggle dark mode
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
         }
 
-        // Start typing
-        type();
-    }
+        // Function to show home content
+        function showHome() {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('current-page');
+            });
+            // Show home section
+            document.getElementById('home-content').classList.add('current-page');
+        }
 
-    // Function to initialize typing animations
-    function initializeTypingAnimations() {
-        const descriptionElement = document.getElementById('description');
-        const homeText = 'Yea, about that.';
-        typeText(descriptionElement, homeText, 100);
+        // Function to show about content
+        function showAbout() {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('current-page');
+            });
+            // Show about section
+            document.getElementById('about-content').classList.add('current-page');
+        }
 
-        const galleryDescriptionElement = document.getElementById('galleryDescription');
-        const galleryText = 'Coming soon...';
-        typeText(galleryDescriptionElement, galleryText, 100);
-    }
+        // Function to show gallery content
+        function showGallery() {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('current-page');
+            });
+            // Show gallery section
+            document.getElementById('gallery-content').classList.add('current-page');
+        }
 
-    // Function to switch to home page
-    function showHome() {
-        // Hide gallery content and show home content
-        document.getElementById('galleryContent').style.display = 'none';
-        document.getElementById('homeContent').style.display = 'block';
+        // Function to show contact content
+        function showContact() {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('current-page');
+            });
+            // Show contact section
+            document.getElementById('contact-content').classList.add('current-page');
+        }
 
-        // Initialize typing animations for home page
-        initializeTypingAnimations();
-    }
+        // Function to open the modal
+        function openModal() {
+            // Get the modal element and modal content
+            const modal = document.getElementById('profileImageModal');
+            const modalContent = document.getElementById('modalContent');
 
-    // Function to switch to gallery page
-    function showGallery() {
-        // Hide home content and show gallery content
-        document.getElementById('homeContent').style.display = 'none';
-        document.getElementById('galleryContent').style.display = 'block';
+            // Set the source of the modal content to the profile image's source
+            const profileImage = document.getElementById('profileImage');
+            modalContent.src = profileImage.src;
 
-        // Initialize typing animations for gallery page
-        initializeTypingAnimations();
-    }
+            // Display the modal
+            modal.style.display = 'block';
+        }
 
-    // Toggle dark mode
-    function toggleMode() {
-        const body = document.body;
-        const button = document.getElementById('toggleButton');
+        // Function to close the modal
+        function closeModal() {
+            const modal = document.getElementById('profileImageModal');
+            modal.style.display = 'none';
+        }
 
-        // Toggle dark mode class on body
-        body.classList.toggle('dark-mode');
+        // Add event listener to profile image for opening the modal
+        document.getElementById('profileImage').addEventListener('click', openModal);
 
-        // Update the button text based on the current mode
-        button.textContent = body.classList.contains('dark-mode') ? '🔆' : '🌙';
+        // Add event listener to close button for closing the modal
+        document.getElementById('closeModalButton').addEventListener('click', closeModal);
 
-        // Reinitialize typing animations when mode changes
-        initializeTypingAnimations();
-    }
-
-    // Navigation event handlers
-    document.getElementById('homeButton').addEventListener('click', showHome);
-    document.getElementById('galleryButton').addEventListener('click', showGallery);
-
-    // Initialize typing animations on page load
-    window.onload = function() {
-        initializeTypingAnimations(); // Initialize typing animations on page load
-        document.getElementById('galleryContent').style.display = 'none';
-
-    };
-
-        document.getElementById('galleryButton').addEventListener('click', function() {
-            // Show Gallery content and hide Home content
-            document.getElementById('galleryContent').style.display = 'block';
-            document.getElementById('homeContent').style.display = 'none';
+        // Also close the modal when clicking outside the modal content
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('profileImageModal');
+            if (event.target === modal) {
+                closeModal();
+            }
         });
     </script>
 </body>
+
 </html>
