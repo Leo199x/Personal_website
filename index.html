@@ -22,8 +22,8 @@
             background-image: url("assets/img/3896707.jpg");
             background-size: cover;
             background-position: center;
-            height: 100vh; /* Ensure body fills the entire viewport vertically */
-            margin: 0; /* Reset margin */
+            height: 100vh;
+            margin: 0;
         }
 
         /* Background image for home page in dark mode */
@@ -31,8 +31,8 @@
             background-image: url("assets/img/hop.jpg");
             background-size: cover;
             background-position: center;
-            height: 100vh; /* Ensure body fills the entire viewport vertically */
-            margin: 0; /* Reset margin */
+            height: 100vh;
+            margin: 0;
         }
 
         /* Styling for the container */
@@ -40,13 +40,11 @@
             padding: 20px;
             margin: 0 auto;
             border-radius: 10px;
-            width: 60%; /* Adjust width for a larger container */
-            max-width: 500px; /* Maximum width for responsiveness */
+            width: 60%;
+            max-width: 500px;
             text-align: center;
             box-shadow: 0 4px 8px rgb(247, 245, 245);
-            /* Remove the border/outline */
             border: none;
-            /* Position relative for the pseudo-element */
             position: relative;
         }
 
@@ -58,10 +56,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            /* Background for the blur effect in light mode */
             background-color: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(10px);
-            z-index: -1; /* Place behind the content */
+            z-index: -1;
         }
 
         /* Pseudo-element for blurred effect behind the box in dark mode */
@@ -72,10 +69,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            /* Background for the blur effect in dark mode */
             background-color: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
-            z-index: -1; /* Place behind the content */
+            z-index: -1;
         }
 
         /* Styling for the profile image */
@@ -84,7 +80,7 @@
             height: 300px;
             border-radius: 50%;
             margin-bottom: 20px;
-            cursor: pointer; /* Indicates the image is clickable */
+            cursor: pointer; /* Add cursor pointer */
         }
 
         /* Styling for the name section */
@@ -105,7 +101,7 @@
             text-decoration: none;
             color: black;
             display: block;
-            padding: 20px; /* Increase padding for larger rectangles */
+            padding: 20px;
             margin-bottom: 10px;
             border-radius: 5px;
             transition: background-color 0.3s;
@@ -155,7 +151,7 @@
             cursor: pointer;
             background-color: #5f5b5bb2;
             color: white;
-            margin-left: 1050px;
+            margin-left: auto;
         }
 
         /* Media queries for responsiveness */
@@ -169,14 +165,10 @@
         .dashboard {
             display: flex;
             align-items: center;
-            justify-content: flex-end; /* This moves the buttons to the right */
+            justify-content: flex-end;
             padding: 10px;
-            background-color: transparent; /* Make the background transparent */
+            background-color: transparent;
             height: 40px;
-        }
-
-        body.dark-mode .dashboard {
-            background-color: rgba(0, 0, 0, 0.5); /* Optional: slightly darken the dashboard in dark mode */
         }
 
         /* Logo styling */
@@ -187,7 +179,6 @@
             margin-left: 20px;
         }
 
-        /* Different logo for dark mode */
         body.dark-mode .logo {
             content: url("assets/img/dalogo.png"); /* Change logo for dark mode */
         }
@@ -202,7 +193,6 @@
             color: black;
             font-weight: bold;
             font-size: 1em;
-            margin-left: 850px;
         }
 
         .nav-button:hover {
@@ -242,7 +232,7 @@
 
         /* Modal styling */
         .modal {
-            display: none; /* Initially hidden */
+            display: none;
             position: fixed;
             z-index: 1;
             padding-top: 60px;
@@ -251,7 +241,7 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.5);
         }
 
         .modal-content {
@@ -259,9 +249,12 @@
             display: block;
             width: 80%;
             max-width: 700px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
         }
 
-        /* Close button */
+        /* Close button styles */
         .close {
             position: absolute;
             top: 15px;
@@ -272,6 +265,7 @@
             cursor: pointer;
         }
 
+        /* Close button hover and focus styles */
         .close:hover,
         .close:focus {
             color: #999;
@@ -280,42 +274,35 @@
 
         /* Media queries for responsiveness */
         @media (max-width: 768px) {
-            /* Reduce dashboard padding and adjust alignment */
             .dashboard {
-                justify-content: center; /* Center align the dashboard */
+                justify-content: center;
                 padding: 5px;
             }
 
-            /* Adjust logo size */
             .logo {
                 width: 40px;
                 height: 40px;
             }
 
-            /* Adjust button size */
             .nav-button {
                 margin-right: 20px;
                 padding: 8px 12px;
                 font-size: 0.9em;
             }
 
-            /* Adjust toggle button position */
             .toggle-button {
                 margin-left: auto;
             }
 
-            /* Reduce container width */
             .container {
                 width: 90%;
             }
 
-            /* Adjust profile image size */
             .profile-image {
                 width: 150px;
                 height: 150px;
             }
 
-            /* Adjust font size */
             .name-section {
                 font-size: 1.2em;
             }
@@ -324,179 +311,137 @@
                 font-size: 0.9em;
             }
 
-            /* Adjust social media link padding */
             a {
-                padding: 10px; /* Reduce padding for smaller screens */
+                padding: 10px;
             }
         }
+
+        @media (max-width: 480px) {
+            /* For very small screens, further adjustments can be made here */
+            /* You can adjust the styles for specific components here */
+        }
+
     </style>
 </head>
 
 <body>
+    <!-- Dashboard with logo, navigation buttons, and dark mode toggle -->
     <div class="dashboard">
-        <!-- Logo -->
-        <img class="logo" src="assets/img/your_logo.png" alt="Logo">
+        <img src="assets/img/logo.png" alt="Logo" class="logo">
 
-        <!-- Navigation buttons -->
-        <button class="nav-button" onclick="showHome()">Home</button>
-        <button class="nav-button" onclick="showAbout()">About</button>
-        <button class="nav-button" onclick="showGallery()">Gallery</button>
-        <button class="nav-button" onclick="showContact()">Contact</button>
+        <button class="nav-button" id="homeButton">Home</button>
+        <button class="nav-button" id="galleryButton">Gallery</button>
 
-        <!-- Toggle button -->
-        <button class="toggle-button" onclick="toggleMode()">Toggle Mode</button>
+        <!-- Toggle button to switch between light and dark mode -->
+        <button class="toggle-button" id="toggleButton" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </div>
 
-    <!-- Home Section -->
-    <div id="home-content" class="content-section current-page">
-        <div class="container">
-            <img src="assets/img/leo.jpg" alt="Profile Image" class="profile-image" id="profileImage">
-            <div class="name-section">LÈO</div>
-            <div class="description-section">
-                I am a full-stack web developer with a passion for building beautiful and functional websites. Let's connect!
-            </div>
-            <a href="https://github.com/your-profile" class="github-link">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/your-profile/" class="linkedin-link">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-            <a href="mailto:your.email@example.com" class="email-link">
-                <i class="fas fa-envelope"></i> Email
-            </a>
-            <a href="path/to/your/cv.pdf" class="cv-link" download>
-                <i class="fas fa-file-download"></i> Download CV
-            </a>
-        </div>
+    <!-- Home content section -->
+    <div id="homeContent" class="container content-section current-page">
+        <!-- Profile image with onclick event -->
+        <img src="assets/img/image2.jpeg" alt="Profile Image" class="profile-image" onclick="openModal()">
+
+        <!-- Name section -->
+        <div class="name-section">Lèo</div>
+
+        <!-- Description section -->
+        <div class="description-section">Developer & Designer</div>
+
+        <!-- Social media links -->
+        <a href="https://github.com/yourusername" target="_blank" class="github-link">
+            <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" class="linkedin-link">
+            <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="mailto:youremail@example.com" class="email-link">
+            <i class="fas fa-envelope"></i> Email
+        </a>
+        <a href="assets/cv.pdf" target="_blank" class="cv-link">
+            <i class="fas fa-file-pdf"></i> CV
+        </a>
     </div>
 
-    <!-- About Section -->
-    <div id="about-content" class="content-section">
-        <div class="container">
-            <div class="name-section">About Me</div>
-            <div class="description-section">
-                <p>Welcome to my portfolio website! I am a passionate web developer specializing in both front-end and back-end development. My goal is to create seamless and user-friendly web experiences that leave a lasting impact.</p>
-                <p>With years of experience in the industry, I have honed my skills in various programming languages and frameworks. I am always eager to take on new challenges and collaborate with talented individuals to deliver exceptional results.</p>
-                <p>Feel free to explore my projects, and don't hesitate to reach out if you have any questions or opportunities in mind!</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Gallery Section -->
-    <div id="gallery-content" class="content-section gallery-content">
-        <div class="container">
-            <div class="name-section">Gallery</div>
-            <div class="description-section">
-                <p>Welcome to my gallery! Here you can find a collection of my favorite projects, designs, and experiences. Browse through to discover some of my work:</p>
-                <div class="gallery-images">
-                    <img src="path/to/image1.jpg" alt="Gallery Image 1">
-                    <img src="path/to/image2.jpg" alt="Gallery Image 2">
-                    <img src="path/to/image3.jpg" alt="Gallery Image 3">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact Section -->
-    <div id="contact-content" class="content-section">
-        <div class="container">
-            <div class="name-section">Contact Me</div>
-            <div class="description-section">
-                <p>I'm always happy to hear from you! Feel free to reach out to me via any of the platforms listed below:</p>
-                <ul>
-                    <li>Email: your.email@example.com</li>
-                    <li>LinkedIn: <a href="https://www.linkedin.com/in/your-profile/">your-profile</a></li>
-                    <li>GitHub: <a href="https://github.com/your-profile">your-profile</a></li>
-                </ul>
-            </div>
+    <!-- Gallery content section -->
+    <div id="galleryContent" class="container gallery-content">
+        <div class="content-section">
+            <!-- Add your gallery content here -->
+            <h1>Welcome to the Gallery</h1>
         </div>
     </div>
 
     <!-- Modal for profile image preview -->
     <div id="profileImageModal" class="modal">
-        <span class="close" id="closeModalButton">&times;</span>
-        <img id="modalContent" class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="assets/img/image2.jpeg" class="modal-content">
     </div>
 
+    <!-- JavaScript -->
     <script>
-        // Function to toggle dark mode
-        function toggleMode() {
-            document.body.classList.toggle('dark-mode');
+        // Typing animation function
+        function typeWriter(text, elementId, delay = 100) {
+            const element = document.getElementById(elementId);
+            let i = 0;
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, delay);
+                }
+            }
+            type();
         }
 
-        // Function to show home content
-        function showHome() {
-            // Hide all sections
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('current-page');
-            });
-            // Show home section
-            document.getElementById('home-content').classList.add('current-page');
+        // Function to initialize typing animations
+        function initializeTypingAnimations() {
+            // Initialize typing animation for name
+            typeWriter("Lèo", "nameSection", 200);
+            // Initialize typing animation for description
+            typeWriter("Developer & Designer", "descriptionSection", 100);
         }
 
-        // Function to show about content
-        function showAbout() {
-            // Hide all sections
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('current-page');
-            });
-            // Show about section
-            document.getElementById('about-content').classList.add('current-page');
+        // Function to switch to home page
+        function showHomePage() {
+            // Hide gallery content
+            document.getElementById("galleryContent").style.display = "none";
+            // Show home content
+            document.getElementById("homeContent").style.display = "block";
         }
 
-        // Function to show gallery content
-        function showGallery() {
-            // Hide all sections
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('current-page');
-            });
-            // Show gallery section
-            document.getElementById('gallery-content').classList.add('current-page');
+        // Function to switch to gallery page
+        function showGalleryPage() {
+            // Hide home content
+            document.getElementById("homeContent").style.display = "none";
+            // Show gallery content
+            document.getElementById("galleryContent").style.display = "block";
         }
 
-        // Function to show contact content
-        function showContact() {
-            // Hide all sections
-            document.querySelectorAll('.content-section').forEach(section => {
-                section.classList.remove('current-page');
-            });
-            // Show contact section
-            document.getElementById('contact-content').classList.add('current-page');
+        // Toggle dark mode
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
         }
+
+        // Event handlers for navigation buttons
+        document.getElementById("homeButton").addEventListener("click", showHomePage);
+        document.getElementById("galleryButton").addEventListener("click", showGalleryPage);
+
+        // Initialize typing animations on page load
+        window.onload = function() {
+            initializeTypingAnimations();
+            // Initially, hide gallery content and show home content
+            document.getElementById("galleryContent").style.display = "none";
+            document.getElementById("homeContent").style.display = "block";
+        };
 
         // Function to open the modal
         function openModal() {
-            // Get the modal element and modal content
-            const modal = document.getElementById('profileImageModal');
-            const modalContent = document.getElementById('modalContent');
-
-            // Set the source of the modal content to the profile image's source
-            const profileImage = document.getElementById('profileImage');
-            modalContent.src = profileImage.src;
-
-            // Display the modal
-            modal.style.display = 'block';
+            document.getElementById("profileImageModal").style.display = "block";
         }
 
         // Function to close the modal
         function closeModal() {
-            const modal = document.getElementById('profileImageModal');
-            modal.style.display = 'none';
+            document.getElementById("profileImageModal").style.display = "none";
         }
-
-        // Add event listener to profile image for opening the modal
-        document.getElementById('profileImage').addEventListener('click', openModal);
-
-        // Add event listener to close button for closing the modal
-        document.getElementById('closeModalButton').addEventListener('click', closeModal);
-
-        // Also close the modal when clicking outside the modal content
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('profileImageModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
     </script>
 </body>
 
