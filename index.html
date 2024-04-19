@@ -508,6 +508,14 @@
             const profilePreview = document.getElementById(elementId + 'Preview');
             profilePreview.style.display = (profilePreview.style.display === 'none' || profilePreview.style.display === '') ? 'block' : 'none';
         }
+
+                // Close profile image preview when clicking outside the image
+        window.onclick = function (event) {
+            const profilePreview = document.getElementById('Preview');
+            if (event.target == profilePreview) {
+                profilePreview.style.display = 'none';
+            }
+        };
     </script>
 </body>
 
