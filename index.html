@@ -504,18 +504,20 @@
         });
 
         // Function to toggle profile image preview
+        // Function to toggle profile image preview
         function toggleProfilePreview(elementId) {
             const profilePreview = document.getElementById(elementId + 'Preview');
             profilePreview.style.display = (profilePreview.style.display === 'none' || profilePreview.style.display === '') ? 'block' : 'none';
         }
 
-                // Close profile image preview when clicking outside the image
-        window.onclick = function (event) {
-            const profilePreview = document.getElementById('Preview');
-            if (event.target == profilePreview) {
+        // Close profile image preview when clicking outside the image
+        window.addEventListener('click', function(event) {
+            const profilePreview = document.getElementById('profileImagePreview');
+            if (!event.target.closest('.profile-image') && !event.target.closest('.preview-image')) {
                 profilePreview.style.display = 'none';
             }
-        };
+        });
+
     </script>
 </body>
 
