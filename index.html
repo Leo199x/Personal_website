@@ -404,12 +404,7 @@
             <div id="galleryDescription"></div>
         </div>
     </div>
-    <!-- Modal for profile image preview -->
-    <div id="profileImageModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img id="modalImage" src="assets/img/image2.jpeg" class="modal-content">
-    </div>
-    
+
     <!-- JavaScript for toggle button, navigation, and typing animation -->
     <script>
     // Typing animation function
@@ -491,16 +486,6 @@
             document.getElementById('galleryContent').style.display = 'block';
             document.getElementById('homeContent').style.display = 'none';
         });
-    
-        // Function to open the modal
-        function openModal() {
-            document.getElementById("profileImageModal").style.display = "block";
-        }
-
-        // Function to close the modal
-        function closeModal() {
-            document.getElementById("profileImageModal").style.display = "none";
-        }    
     </script>
 </body>
 </html>
