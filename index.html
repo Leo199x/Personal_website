@@ -87,6 +87,7 @@
             cursor: pointer; /* Add cursor pointer */
         }
 
+        /* Styling for the profile image preview */
         .profile-preview {
             display: none;
             position: fixed;
@@ -94,8 +95,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 999;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
         }
 
         .preview-image {
@@ -107,54 +108,13 @@
             transform: translate(-50%, -50%);
         }
 
-        /* Styling for the name section */
-        .name-section {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        /* Styling for the description section */
-        .description-section {
-            margin-bottom: 20px;
-            font-size: 1em;
-        }
-
-        /* Styling for the social media links */
-        a {
-            text-decoration: none;
-            color: black;
-            display: block;
-            padding: 20px; /* Increase padding for larger rectangles */
-            margin-bottom: 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        /* Styling for social media links with different colors */
-        .github-link {
-            background-color: #333;
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             color: white;
-        }
-
-        .linkedin-link {
-            background-color: #0a66c2;
-            color: white;
-        }
-
-        .email-link {
-            background-color: #2C3E50;
-            color: white;
-        }
-
-        .cv-link {
-            background-color: #8e44ad;
-            color: white;
-        }
-
-        /* Hover effect for social media links */
-        a:hover {
-            opacity: 0.8;
+            font-size: 24px;
+            cursor: pointer;
         }
 
         /* Styles for dark mode */
@@ -186,18 +146,32 @@
         }
 
         /* Dashboard styles */
-        /* Dashboard styles */
-        .dashboard {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end; /* This moves the buttons to the right */
-            padding: 10px;
-            background-color: transparent; /* Make the background transparent */
-            height: 40px;
-        }
+    /* Dashboard styles */
+    .dashboard {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* This moves the buttons to the right */
+        padding: 10px;
+        background-color: transparent; /* Make the background transparent */
+        height: 40px;
+    }
 
-        body.dark-mode .dashboard {
-            background-color: rgba(0, 0, 0, 0.5); /* Optional: slightly darken the dashboard in dark mode */
+    body.dark-mode .dashboard {
+        background-color: rgba(0, 0, 0, 0.5); /* Optional: slightly darken the dashboard in dark mode */
+    }
+
+    /* Logo styling */
+    .logo {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px; /* Push the logo to the left */
+        margin-left: 20px;
+    }
+
+
+        /* Adjustments for dark mode buttons */
+        body.dark-mode .nav-button {
+            color: white; /* Set buttons to white in dark mode */
         }
 
         /* Logo styling */
@@ -206,11 +180,6 @@
             height: 50px;
             margin-right: 20px; /* Push the logo to the left */
             margin-left: 20px;
-        }
-
-        /* Adjustments for dark mode buttons */
-        body.dark-mode .nav-button {
-            color: white; /* Set buttons to white in dark mode */
         }
 
         /* Different logo for dark mode */
@@ -381,9 +350,11 @@
     <div id="homeContent" class="container content-section current-page">
         <!-- Profile image at the top of the container -->
         <img src="assets/img/image2.jpeg" alt="Profile Image" class="profile-image" onclick="toggleProfilePreview('profileImage')">
+
         <!-- Profile image preview -->
-        <div id="profileImagePreview" class="profile-preview">
-            <img src="assets/img/image2.jpeg" alt="Profile Image Preview" class="preview-image" onclick="toggleProfilePreview('profileImage')">
+        <div id="profileImagePreview" class="profile-preview" onclick="toggleProfilePreview('profileImage')">
+            <img src="assets/img/image2.jpeg" alt="Profile Image" class="preview-image">
+            <span class="close-button" onclick="toggleProfilePreview('profileImage')">&times;</span>
         </div>
 
         <!-- Name section -->
@@ -494,7 +465,6 @@
         window.onload = function () {
             initializeTypingAnimations(); // Initialize typing animations on page load
             document.getElementById('galleryContent').style.display = 'none';
-
         };
 
         document.getElementById('galleryButton').addEventListener('click', function () {
@@ -504,19 +474,25 @@
         });
 
         // Function to toggle profile image preview
-        function toggleProfilePreview(elementId) {
-            const profilePreview = document.getElementById(elementId + 'Preview');
-            profilePreview.style.display = (profilePreview.style.display === 'none' || profilePreview.style.display === '') ? 'block' : 'none';
-        }
-        
-        window.addEventListener('click', function (event) {
+        function toggleProfilePreview(imageId) {
             const profilePreview = document.getElementById('profileImagePreview');
-            if (event.target !== profilePreview && !profilePreview.contains(event.target)) {
+            if (profilePreview.style.display === 'none') {
+                const profileImage = document.getElementById(imageId);
+                const previewImage = profilePreview.querySelector('.preview-image');
+                previewImage.src = profileImage.src;
+                profilePreview.style.display = 'flex';
+            } else {
                 profilePreview.style.display = 'none';
             }
-        });
+        }
 
-        
+        // Close profile image preview when clicking outside the image
+        window.onclick = function (event) {
+            const profilePreview = document.getElementById('profileImagePreview');
+            if (event.target == profilePreview) {
+                profilePreview.style.display = 'none';
+            }
+        };
     </script>
 </body>
 
