@@ -168,7 +168,7 @@
         }
         /* Adjust home button */
         #homeButton {
-            margin-left: 1050px !important;; /* Add margin to move the button further to the right */
+            margin-left: 1250px !important;; /* Add margin to move the button further to the right */
         }
 
         /* Styles for the toggle button */
@@ -379,7 +379,7 @@
         <button class="nav-button" id="galleryButton">Gallery</button>
 
         <!-- Toggle button to switch between light and dark mode -->
-        <button class="toggle-button" id="toggleButton" onclick="toggleMode()">🌑</button>
+        <button class="toggle-button" id="toggleButton" onclick="toggleMode()">🌒</button>
     </div>
 
     <!-- Home content section -->
@@ -485,7 +485,7 @@
             body.classList.toggle('dark-mode');
 
             // Update the button text based on the current mode
-            button.textContent = body.classList.contains('dark-mode') ? '🔆' : '🌑';
+            button.textContent = body.classList.contains('dark-mode') ? '🔆' : '🌒';
 
             // Reinitialize typing animations when mode changes
             initializeTypingAnimations();
