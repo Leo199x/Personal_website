@@ -84,6 +84,27 @@
             height: 300px;
             border-radius: 50%;
             margin-bottom: 20px;
+            cursor: pointer; /* Add cursor pointer */
+        }
+
+        .profile-preview {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+        }
+
+        .preview-image {
+            max-width: 80%;
+            max-height: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         /* Styling for the name section */
@@ -165,32 +186,18 @@
         }
 
         /* Dashboard styles */
-    /* Dashboard styles */
-    .dashboard {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end; /* This moves the buttons to the right */
-        padding: 10px;
-        background-color: transparent; /* Make the background transparent */
-        height: 40px;
-    }
+        /* Dashboard styles */
+        .dashboard {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* This moves the buttons to the right */
+            padding: 10px;
+            background-color: transparent; /* Make the background transparent */
+            height: 40px;
+        }
 
-    body.dark-mode .dashboard {
-        background-color: rgba(0, 0, 0, 0.5); /* Optional: slightly darken the dashboard in dark mode */
-    }
-
-    /* Logo styling */
-    .logo {
-        width: 50px;
-        height: 50px;
-        margin-right: 20px; /* Push the logo to the left */
-        margin-left: 20px;
-    }
-
-
-        /* Adjustments for dark mode buttons */
-        body.dark-mode .nav-button {
-            color: white; /* Set buttons to white in dark mode */
+        body.dark-mode .dashboard {
+            background-color: rgba(0, 0, 0, 0.5); /* Optional: slightly darken the dashboard in dark mode */
         }
 
         /* Logo styling */
@@ -199,6 +206,11 @@
             height: 50px;
             margin-right: 20px; /* Push the logo to the left */
             margin-left: 20px;
+        }
+
+        /* Adjustments for dark mode buttons */
+        body.dark-mode .nav-button {
+            color: white; /* Set buttons to white in dark mode */
         }
 
         /* Different logo for dark mode */
@@ -368,7 +380,7 @@
     <!-- Home content section -->
     <div id="homeContent" class="container content-section current-page">
         <!-- Profile image at the top of the container -->
-        <img src="assets/img/image2.jpeg" alt="Profile Image" class="profile-image">
+        <img src="assets/img/image2.jpeg" alt="Profile Image" class="profile-image" onclick="toggleProfilePreview('profileImage')">
 
         <!-- Name section -->
         <div class="name-section">
@@ -407,85 +419,92 @@
 
     <!-- JavaScript for toggle button, navigation, and typing animation -->
     <script>
-    // Typing animation function
-    function typeText(element, text, speed = 100) {
-        element.textContent = ''; // Clear any existing text
-        let i = 0;
+        // Typing animation function
+        function typeText(element, text, speed = 100) {
+            element.textContent = ''; // Clear any existing text
+            let i = 0;
 
-        function type() {
-            if (i < text.length) {
-                element.textContent += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
             }
+
+            // Start typing
+            type();
         }
 
-        // Start typing
-        type();
-    }
+        // Function to initialize typing animations
+        function initializeTypingAnimations() {
+            const descriptionElement = document.getElementById('description');
+            const homeText = 'Yea, about that.';
+            typeText(descriptionElement, homeText, 100);
 
-    // Function to initialize typing animations
-    function initializeTypingAnimations() {
-        const descriptionElement = document.getElementById('description');
-        const homeText = 'Yea, about that.';
-        typeText(descriptionElement, homeText, 100);
+            const galleryDescriptionElement = document.getElementById('galleryDescription');
+            const galleryText = 'Coming soon...';
+            typeText(galleryDescriptionElement, galleryText, 100);
+        }
 
-        const galleryDescriptionElement = document.getElementById('galleryDescription');
-        const galleryText = 'Coming soon...';
-        typeText(galleryDescriptionElement, galleryText, 100);
-    }
+        // Function to switch to home page
+        function showHome() {
+            // Hide gallery content and show home content
+            document.getElementById('galleryContent').style.display = 'none';
+            document.getElementById('homeContent').style.display = 'block';
 
-    // Function to switch to home page
-    function showHome() {
-        // Hide gallery content and show home content
-        document.getElementById('galleryContent').style.display = 'none';
-        document.getElementById('homeContent').style.display = 'block';
+            // Initialize typing animations for home page
+            initializeTypingAnimations();
+        }
 
-        // Initialize typing animations for home page
-        initializeTypingAnimations();
-    }
+        // Function to switch to gallery page
+        function showGallery() {
+            // Hide home content and show gallery content
+            document.getElementById('homeContent').style.display = 'none';
+            document.getElementById('galleryContent').style.display = 'block';
 
-    // Function to switch to gallery page
-    function showGallery() {
-        // Hide home content and show gallery content
-        document.getElementById('homeContent').style.display = 'none';
-        document.getElementById('galleryContent').style.display = 'block';
+            // Initialize typing animations for gallery page
+            initializeTypingAnimations();
+        }
 
-        // Initialize typing animations for gallery page
-        initializeTypingAnimations();
-    }
+        // Toggle dark mode
+        function toggleMode() {
+            const body = document.body;
+            const button = document.getElementById('toggleButton');
 
-    // Toggle dark mode
-    function toggleMode() {
-        const body = document.body;
-        const button = document.getElementById('toggleButton');
+            // Toggle dark mode class on body
+            body.classList.toggle('dark-mode');
 
-        // Toggle dark mode class on body
-        body.classList.toggle('dark-mode');
+            // Update the button text based on the current mode
+            button.textContent = body.classList.contains('dark-mode') ? '🔆' : '🌙';
 
-        // Update the button text based on the current mode
-        button.textContent = body.classList.contains('dark-mode') ? '🔆' : '🌙';
+            // Reinitialize typing animations when mode changes
+            initializeTypingAnimations();
+        }
 
-        // Reinitialize typing animations when mode changes
-        initializeTypingAnimations();
-    }
+        // Navigation event handlers
+        document.getElementById('homeButton').addEventListener('click', showHome);
+        document.getElementById('galleryButton').addEventListener('click', showGallery);
 
-    // Navigation event handlers
-    document.getElementById('homeButton').addEventListener('click', showHome);
-    document.getElementById('galleryButton').addEventListener('click', showGallery);
+        // Initialize typing animations on page load
+        window.onload = function () {
+            initializeTypingAnimations(); // Initialize typing animations on page load
+            document.getElementById('galleryContent').style.display = 'none';
 
-    // Initialize typing animations on page load
-    window.onload = function() {
-        initializeTypingAnimations(); // Initialize typing animations on page load
-        document.getElementById('galleryContent').style.display = 'none';
+        };
 
-    };
-
-        document.getElementById('galleryButton').addEventListener('click', function() {
+        document.getElementById('galleryButton').addEventListener('click', function () {
             // Show Gallery content and hide Home content
             document.getElementById('galleryContent').style.display = 'block';
             document.getElementById('homeContent').style.display = 'none';
         });
+
+        // Function to toggle profile image preview
+        function toggleProfilePreview(elementId) {
+            const profilePreview = document.getElementById(elementId + 'Preview');
+            profilePreview.style.display = (profilePreview.style.display === 'none' || profilePreview.style.display === '') ? 'block' : 'none';
+        }
     </script>
 </body>
+
 </html>
